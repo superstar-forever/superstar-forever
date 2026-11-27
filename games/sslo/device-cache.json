@@ -1,0 +1,132 @@
+{
+  "_comment": "Where the game's on-device cache keeps what it downloaded (tools/import-device-cache.py). Folder and file names come from AssetPathControl..cctor (work/sslo/re/assetpath-*.txt). 'dataFolder': folder (inside the download tree, which is found by its a.json) with the tables and the cache indexes. 'urlMap': CDN URL -> cache path (paths relative to the download tree). 'urlVersion'/'urlSizes': cache path -> v=, and URL -> size (AssetURLData), used to place files the URL map doesn't list. 'tables': asset-context table name -> file in dataFolder. 'byCode': files stored by a table row's code (paths with {code}). 'titleBackgrounds': cache path of title background {0} (manifest TitleBackgroundUrl, TitleBackgroundCount).",
+  "dataFolder": "sdisgkdc",
+  "urlMap": "url_shared_map.bin",
+  "urlVersion": "url_version.bin",
+  "urlSizes": "url2.bin",
+  "tables": {
+    "ArtistData": "atd.bin",
+    "ArtistPackData": "atp.bin",
+    "ArtistStoreData": "ats.bin",
+    "ArtistTypeData": "att.bin",
+    "AssetURLData": "url2.bin",
+    "AttendanceConsecutiveData": "acd.bin",
+    "AttendanceData": "add.bin",
+    "AttendanceManagementData": "amt.bin",
+    "CardBalanceData": "cbd.bin",
+    "CardData": "cdd.bin",
+    "CardGradeBonusData": "cgd.bin",
+    "CardIntensifyData": "cid.bin",
+    "CardInvenExpandStoreData": "ces.bin",
+    "CardPackYearData": "cpy.bin",
+    "CardSellData": "csd.bin",
+    "CardStoreData": "cds.bin",
+    "CashPurchaseEventData": "ced.bin",
+    "CollectEventData": "cet.bin",
+    "CollectionAchievementData": "cac.bin",
+    "CollectionPointData": "cap.bin",
+    "ComebackAttendanceData": "cad.bin",
+    "CommonData": "cmm.bin",
+    "DiamondStoreData": "dis.bin",
+    "EventAttendanceData": "eat.bin",
+    "EventManagementData": "emt.bin",
+    "EventMissionData": "emd.bin",
+    "EventSelectCardData": "smesc.bin",
+    "ExtraResourceData": "erd.bin",
+    "FreePassRewardData": "fpr.bin",
+    "GameConfigData": "gcd.bin",
+    "GroupData": "grd.bin",
+    "HeadphoneStoreData": "hps.bin",
+    "HelpData": "gde.bin",
+    "InputCharRangeData": "icd.bin",
+    "IntensifyEventData": "itd.bin",
+    "LanguageData": "lgd.bin",
+    "LeagueWeeklyInfoData": "lwi.bin",
+    "LeagueWeeklyRewardData": "lwr.bin",
+    "LiveThemeCardData": "ltc.bin",
+    "LiveThemeData": "ltd.bin",
+    "LiveThemeGifData": "ltg.bin",
+    "LiveThemeSoundData": "lto.bin",
+    "LobbyBgData": "lbg.bin",
+    "LobbyBgStoreData": "lbs.bin",
+    "LocaleData": "lcd.bin",
+    "LocalePopupData": "lpd.bin",
+    "MissionData": "mss.bin",
+    "MissionDetailData": "mdd.bin",
+    "MusicData": "msd.bin",
+    "MyRecordData": "mrc.bin",
+    "MyStoreData": "mse.bin",
+    "MyStoreInfoData": "msI.bin",
+    "NpcData": "npd.bin",
+    "PassMissionData": "pms.bin",
+    "PlaytimeAttendanceData": "pta.bin",
+    "PointRewardData": "pre.bin",
+    "PopupStoreData": "sts.bin",
+    "PremiumPassRewardData": "ppr.bin",
+    "PrismData": "pis.bin",
+    "ProfileData": "prd.bin",
+    "RecommendStoreData": "rcs.bin",
+    "RhythmPointStoreData": "rps.bin",
+    "SelectCardData": "scd.bin",
+    "ShareHashtagData": "sht.bin",
+    "SpecialStoreData": "dcs.bin",
+    "SpecialUserData": "sur.bin",
+    "StarPassData": "sps.bin",
+    "StarPassStoreData": "spi.bin",
+    "StoreHomeData": "shomep.bin",
+    "StoreMenuData": "smp.bin",
+    "ThemeData": "tmd.bin",
+    "ThemeTypeData": "ttd.bin",
+    "URLs": "url.bin",
+    "WordFilterData": "wfd.bin",
+    "WorldRecordData": "wrc.bin"
+  },
+  "byCode": [
+    {
+      "table": "MusicData",
+      "field": "sound",
+      "path": "dslkjfsdalhh/{code}.a.bytes"
+    },
+    {
+      "table": "MusicData",
+      "field": "seqEasy",
+      "path": "aweid/{code}_4.seq"
+    },
+    {
+      "table": "MusicData",
+      "field": "seqNormal",
+      "path": "aweid/{code}_7.seq"
+    },
+    {
+      "table": "MusicData",
+      "field": "seqHard",
+      "path": "aweid/{code}_13.seq"
+    },
+    {
+      "table": "MusicData",
+      "field": "previewSound",
+      "path": "dslkjfsdalhh/asdlkasdqoweirypqwier/{code}.a.bytes"
+    },
+    {
+      "table": "MusicData",
+      "field": "album",
+      "path": "asodhsg/woeiurty/{code}.i.bytes"
+    },
+    {
+      "table": "MusicData",
+      "field": "image",
+      "path": "asodhsg/hcxjx/{code}.i.bytes"
+    },
+    {
+      "table": "GroupData",
+      "field": "emblemImage",
+      "path": "asodhsg/aweoijs/{code}.i.bytes"
+    },
+    {
+      "table": "GroupData",
+      "field": "bestCardbookImage",
+      "path": "asodhsg/foewghkc/{code}.i.bytes"
+    }
+  ],
+  "titleBackgrounds": "asodhsg/kswoks/bg{0}.i.bytes"
+}

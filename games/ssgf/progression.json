@@ -1,0 +1,226 @@
+{
+  "_comment": "Card progression settings for the offline server (see games/ssomg/re/notes/06-progression.md). Copied to server-data/progression.json by tools/build-server-data.py. Grades: 0=C 1=B 2=A 3=S 4=R. Difficulties: 0=easy 1=normal 2=hard. Values below come from SUPERSTAR GFRIEND's own master data (v204) unless a _why says otherwise.",
+  "start": {
+    "nickname": "Buddy",
+    "_why": "GFriend's client has the same tutorial reward tag tutorialNormalCardPack30 (il2cpp string literals), i.e. a normal 30-card pack; no table gives a different size. Given at save creation so there's always a leader card. headphone/maxCardInventory are offline choices (GameConfigData INIT_MAX_CARD_INVENTORY=200, MAX_EXPAND_CARD_INVENTORY=1000 in GFriend, 2500 in SSOMG).",
+    "packs": [
+      {
+        "kind": "normal",
+        "size": 30
+      }
+    ],
+    "rhythmPoint": 0,
+    "diamond": 0,
+    "headphone": 99999,
+    "maxCardInventory": 9999
+  },
+  "rpPerSong": {
+    "_why": "PLACEHOLDER formula (same as SSOMG). GFriend's GameConfigData has the same constants as SSOMG: RP_BONUS (15401)=165, RP_BONUS_REVISION (15402)=15000, RP_BONUS_EASY/NORMAL/HARD (15403-15405)=18/45/90. rp = base + difficultyBonus * (score / revision) ^ exponent; the exponent is not in any table.",
+    "base": 165,
+    "revision": 15000,
+    "difficultyBonus": [
+      18,
+      45,
+      90
+    ],
+    "exponent": 0.5
+  },
+  "packs": {
+    "_why": "Normal pack: GFriend's published odds; premium and prism packs: a community sheet (both found by the user). GFriend's tables have no pack odds (the 'drop rate' button opens the manifest's ProbabilityUrl web page; CardStoreData only has prices 5,000/10,000/30,000 RP and 50/90/240 diamonds, same as SSOMG). Odds per grade; 'guarantee' = at least N cards of at least that grade per pack size, or with guaranteeMode 'slot' N cards of exactly that grade plus the rest rolled.",
+    "normal": {
+      "_why": "GFriend's published 'expected normal card pack' odds: C 64 %, B 30.4 %, A 4 %, S 1.6 %, prism 1 % (a prism slot rolls its grade with the same weights). The shop shows no guarantee for normal packs.",
+      "gradeWeights": {
+        "0": 64,
+        "1": 30.4,
+        "2": 4,
+        "3": 1.6
+      },
+      "prismPercent": 1
+    },
+    "premium": {
+      "_why": "Community sheet of GFriend's premium pack odds: B 66 %, A 21 %, S 10.6 %, R 2.4 %, 3 % prism, plus one card of exactly the guaranteed grade (the shop: 5-pack an A, 10-pack an S, 30-pack an R); e.g. 5-pack A = (1 + 0.21 * 4) / 5. Not confirmed by Dalcomsoft.",
+      "gradeWeights": {
+        "1": 66,
+        "2": 21,
+        "3": 10.6,
+        "4": 2.4
+      },
+      "prismPercent": 3,
+      "guaranteeMode": "slot",
+      "guarantee": {
+        "5": {
+          "grade": 2,
+          "count": 1
+        },
+        "10": {
+          "grade": 3,
+          "count": 1
+        },
+        "30": {
+          "grade": 4,
+          "count": 1
+        }
+      }
+    },
+    "prism": {
+      "_why": "GFriend's prism pack odds (community sheet): C 20 %, B 46 %, A 21 %, S 10.6 %, R 2.4 %; prism cards only. Given by the record ladder.",
+      "gradeWeights": {
+        "0": 20,
+        "1": 46,
+        "2": 21,
+        "3": 10.6,
+        "4": 2.4
+      }
+    }
+  },
+  "firstClear": {
+    "_why": "KEPT FROM SSOMG: no first-clear reward table in GFriend either (the client's firstClearReward is server data). Per song and difficulty: one card from the song's group, grade by difficulty, plus some RP (the result screen hangs when a song's rewards are only card packs).",
+    "gradeByDifficulty": [
+      0,
+      1,
+      2
+    ],
+    "rhythmPoint": 500
+  },
+  "songMilestones": {
+    "_why": "GFriend's MissionData, mapped like SSOMG's: every 5 songs = the daily RP (code 1 song play II 2,000 + code 2 power up 3,000) + the daily card-purchase card (code 3: A grade; SSOMG gave B); every 20 = weekly all-clear 100 diamonds (code 14; SSOMG 50) + weekly card-purchase A card (code 12); every 50 = weekly power-up 10,000 RP (code 11) + 5-day all-clear S card (code 13). Left out as in SSOMG: daily all-clear S card (code 4), 3 headphones (code 0), weekly 20 songs 5,000 RP (code 10).",
+    "list": [
+      {
+        "every": 5,
+        "rhythmPoint": 5000,
+        "cards": [
+          {
+            "grade": 2
+          }
+        ]
+      },
+      {
+        "every": 20,
+        "diamond": 100,
+        "cards": [
+          {
+            "grade": 2
+          }
+        ]
+      },
+      {
+        "every": 50,
+        "rhythmPoint": 10000,
+        "cards": [
+          {
+            "grade": 3
+          }
+        ]
+      }
+    ]
+  },
+  "recordLadder": {
+    "_why": "GFriend's MyRecordData, last month's tiers (codes 126-130, 2025-02; same since 2024-11), run once, counts distinct songs cleared (clearMusicMin 1/21/41/61/81). Per tier: prism pack (icon1 1326-1328 = atten_card_pr_01/05/10) + premium pack (icon2 236-238) + diamonds (icon3 222) + RP (icon4 223). Prism packs are given as prism packs (only prism cards, premium odds).",
+    "tiers": [
+      {
+        "songs": 1,
+        "diamond": 100,
+        "rhythmPoint": 40000,
+        "packs": [
+          {
+            "kind": "prism",
+            "size": 1
+          },
+          {
+            "kind": "premium",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "songs": 21,
+        "diamond": 150,
+        "rhythmPoint": 50000,
+        "packs": [
+          {
+            "kind": "prism",
+            "size": 5
+          },
+          {
+            "kind": "premium",
+            "size": 10
+          }
+        ]
+      },
+      {
+        "songs": 41,
+        "diamond": 200,
+        "rhythmPoint": 60000,
+        "packs": [
+          {
+            "kind": "prism",
+            "size": 5
+          },
+          {
+            "kind": "premium",
+            "size": 10
+          }
+        ]
+      },
+      {
+        "songs": 61,
+        "diamond": 250,
+        "rhythmPoint": 70000,
+        "packs": [
+          {
+            "kind": "prism",
+            "size": 10
+          },
+          {
+            "kind": "premium",
+            "size": 30
+          }
+        ]
+      },
+      {
+        "songs": 81,
+        "diamond": 300,
+        "rhythmPoint": 80000,
+        "packs": [
+          {
+            "kind": "prism",
+            "size": 10
+          },
+          {
+            "kind": "premium",
+            "size": 30
+          }
+        ]
+      }
+    ]
+  },
+  "gradeUp": {
+    "_why": "Two cards of the same member and grade, both at max level, become one card of the next grade (same member, level 1). Max levels from GFriend's GameConfigData MAX_CARD_LEVEL (10101)=5, MAX_R_CARD_LEVEL (10102)=50 (same as SSOMG; CardBalanceData/CardIntensifyData/CardGradeBonusData/CardSellData are identical to SSOMG's too). Cost not in the tables; RP = CardSellData sell price of the two cards.",
+    "requireMaxLevel": true,
+    "maxLevel": 5,
+    "maxRLevel": 50
+  },
+  "liveThemes": {
+    "_why": "GFriend's live themes were rewards of an event (EventMissionData event 77: songs from 1/4/8/12 albums with 4,500,000+ points). Offline, an album counts once every song on it has three stars (no miss) on Normal or Hard; no score requirement (scores depend mostly on card levels). Optional minScore. Themes: LiveThemeData codes 0 NEW LABYRINTH, 1 SUMMER, 2 6TH ANNIVERSARY, 3 ANIMAL.",
+    "minDifficulty": 1,
+    "minStars": 3,
+    "unlocks": [
+      {
+        "albums": 1,
+        "theme": 0
+      },
+      {
+        "albums": 4,
+        "theme": 1
+      },
+      {
+        "albums": 8,
+        "theme": 2
+      },
+      {
+        "albums": 12,
+        "theme": 3
+      }
+    ]
+  }
+}

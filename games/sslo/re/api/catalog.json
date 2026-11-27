@@ -1,0 +1,3234 @@
+[
+  {
+    "command": "Account.createAuthentication",
+    "rpc": {
+      "clazz": "Account",
+      "method": "createAuthentication"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Authentication> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [
+      "Authentication"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Account.createAccount",
+    "rpc": {
+      "clazz": "Account",
+      "method": "createAccount"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, AuthProvider authProvider, string authProviderUserID, string authProviderAccessToken, string nickname, short languageCode, Channel channel, bool isIgnoreAssetUpdate = True"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.login",
+    "rpc": {
+      "clazz": "Account",
+      "method": "login"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Player, DateTime, Nullable<long>, int, int> callback, AuthProvider authProvider, string authProviderUserID, string authProviderAccessToken, string versionString, Channel channel, bool immediately, bool isUpdateAccessToken = False, bool isIgnoreAssetUpdate = False"
+    },
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [
+      "LoginResponse"
+    ],
+    "strings": [
+      "Double redefine for complex type.",
+      "keyEntry"
+    ]
+  },
+  {
+    "command": "Account.leave",
+    "rpc": {
+      "clazz": "Account",
+      "method": "leave"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, AuthProvider authProvider, string authProviderUserID, string currentAuthProviderAccessToken"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.refreshAccessToken",
+    "rpc": {
+      "clazz": "Account",
+      "method": "refreshAccessToken"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeAuthentication",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeAuthentication"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long authObjectId, string curAuthAccessToken, AuthProvider authProvider, string newAuthUserID, string newAuthAccessToken, Channel newChannel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeLanguage",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeLanguage"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short language"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.changeMyMember",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeMyMember"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, int memberCode, bool isProfileSetting"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeProfileImage",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeProfileImage"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, int profileCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.buyProfileImage",
+    "rpc": {
+      "clazz": "Account",
+      "method": "buyProfileImage"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, int code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.getBuyProfileImage",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getBuyProfileImage"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<int>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<int>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Account.getUserData",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getUserData"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Player> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Player"
+    ],
+    "strings": [
+      "Double redefine for complex type.",
+      "nickname",
+      "user"
+    ]
+  },
+  {
+    "command": "Account.isValidNickname",
+    "rpc": {
+      "clazz": "Account",
+      "method": "isValidNickname"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string nickname"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeNickname",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeNickname"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string nickname"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.getUserData",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getUserData"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long searchUserObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Player"
+    ],
+    "strings": [
+      "Double redefine for complex type.",
+      "nickname",
+      "user"
+    ]
+  },
+  {
+    "command": "Account.getUserDataWithNickname",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getUserDataWithNickname"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, User> callback, string nickname"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "User"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Account.checkSNS",
+    "rpc": {
+      "clazz": "Account",
+      "method": "checkSNS"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, bool> callback, string idToken, int snsChannel = 0"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "<b>pointerPress</b>: ",
+      "isSigned"
+    ]
+  },
+  {
+    "command": "Account.conversion",
+    "rpc": {
+      "clazz": "Account",
+      "method": "conversion"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string idToken"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.disconnectDalcomSSO",
+    "rpc": {
+      "clazz": "Account",
+      "method": "disconnectDalcomSSO"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, DisconnectResponse> callback, string idToken"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "DisconnectResponse"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "Account.checkDalcomSSOReward",
+    "rpc": {
+      "clazz": "Account",
+      "method": "checkDalcomSSOReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, CheckDalcomSSORewardEntity> callback, string dalcomid_token"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "CheckDalcomSSORewardEntity"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Account.requestReward",
+    "rpc": {
+      "clazz": "Account",
+      "method": "requestReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string type"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.checkAppleID",
+    "rpc": {
+      "clazz": "Account",
+      "method": "checkAppleID"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, string, string> callback, string authoricationCode"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "exception processing sig: ",
+      "password",
+      "userId"
+    ]
+  },
+  {
+    "command": "Account.DeleteAppleTokenData",
+    "rpc": {
+      "clazz": "Account",
+      "method": "deleteAppleTokenData"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "long userObjectID, string accessToken, string authorizationCode, Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.createSNSAccount",
+    "rpc": {
+      "clazz": "Account",
+      "method": "createSNSAccount"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, AuthProvider authProvider, string authProviderUserID, string authProviderAccessToken, int snsChannel, string idToken, string nickname, short languageCode, Channel deviceType, bool isIgnoreAssetUpdate = True"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.connectSNS",
+    "rpc": {
+      "clazz": "Account",
+      "method": "connectSNS"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string idToken, int snsChannel = 0"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.disconnectSNSBegin",
+    "rpc": {
+      "clazz": "Account",
+      "method": "disconnectSNSBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, DisconnectResponse> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "DisconnectResponse"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Account.disconnectSNSConfirm",
+    "rpc": {
+      "clazz": "Account",
+      "method": "disconnectSNSConfirm"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.loginSNS",
+    "rpc": {
+      "clazz": "Account",
+      "method": "loginSNS"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Player, DateTime, Nullable<long>, int, int> callback, string idToken, string versionString, Channel device, int snsChannel = 0"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [
+      "LoginResponse"
+    ],
+    "strings": [
+      "Double redefine for complex type.",
+      "keyEntry"
+    ]
+  },
+  {
+    "command": "Account.ApplyAccessToken",
+    "rpc": {
+      "clazz": "Account",
+      "method": "applyAccessToken"
+    },
+    "signature": {
+      "returns": "void",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "exception processing sig: ",
+      "rlgjtjf_epr"
+    ]
+  },
+  {
+    "command": "Account.getMyLobbyBgList",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getMyLobbyBgList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeMyLobbyBg",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeMyLobbyBg"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "RevealImmediate"
+    ]
+  },
+  {
+    "command": "Account.changeADID",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeADID"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string value, int platform"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeLobbyBgList",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeLobbyBgList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, int newBgCode, bool equip"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.savePlayTime",
+    "rpc": {
+      "clazz": "Account",
+      "method": "savePlayTime"
+    },
+    "signature": {
+      "returns": "void",
+      "params": "int playTimeTakeable, int playTimeStatus"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "No media in drive"
+    ]
+  },
+  {
+    "command": "Account.getMyInfo",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getMyInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, PlayerInfo> callback, long targetUserObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "PlayerInfo"
+    ],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.changeMyInfo",
+    "rpc": {
+      "clazz": "Account",
+      "method": "changeMyInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, PlayerInfoCategory category, long numberValue, string strValue"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "DS nc still has dsas"
+    ]
+  },
+  {
+    "command": "Account.getStatistics",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getStatistics"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<StatisticsInfo>> callback, long targetUserObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<StatisticsInfo>"
+    ],
+    "strings": [
+      ".26"
+    ]
+  },
+  {
+    "command": "Account.setStatistics",
+    "rpc": {
+      "clazz": "Account",
+      "method": "setStatistics"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, StatisticsInfoType type, string target, int value"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Account.searchUser",
+    "rpc": {
+      "clazz": "Account",
+      "method": "searchUser"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<SearchUserInfo>> callback, string nickname"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<SearchUserInfo>"
+    ],
+    "strings": [
+      "Double redefine for complex type."
+    ]
+  },
+  {
+    "command": "Account.getUserMusicContentsStatus",
+    "rpc": {
+      "clazz": "Account",
+      "method": "getUserMusicContentsStatus"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MusicContentInfo>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<MusicContentInfo>"
+    ],
+    "strings": [
+      "Bad pathname"
+    ]
+  },
+  {
+    "command": "Account.unlockUserMusicContents",
+    "rpc": {
+      "clazz": "Account",
+      "method": "unlockUserMusicContents"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, MusicContentInfo> callback, short contentsCode, short type"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "MusicContentInfo"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Account.checkQRCodeCouponUseAndProvide",
+    "rpc": {
+      "clazz": "Account",
+      "method": "checkQRCodeCouponUseAndProvide"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, string couponCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "com.google.android.ump.ConsentInformation$OnConsentInfoUpdateSuccessListener"
+    ]
+  },
+  {
+    "command": "Arena.enterArena",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "enterArena"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Arena.getRank",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "getArenaRank"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, ArenaWeeklyInfo> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "ArenaWeeklyInfo"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Arena.getArenaReward",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "getArenaReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, ArenaLeagueReward> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "ArenaLeagueReward"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Arena.getDailyMic",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "getDailyMic"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, DailyMic> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "DailyMic"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Arena.getArenaData",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "getArenaData"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, ArenaBasicInfo> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "ArenaBasicInfo"
+    ],
+    "strings": [
+      "RenderTextureDesc height must be greater than zero."
+    ]
+  },
+  {
+    "command": "Attendance.getAttendanceInfo",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "getAttendanceInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, AttendanceInfo> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "AttendanceInfo"
+    ],
+    "strings": [
+      "IPSEC IKE getspifail"
+    ]
+  },
+  {
+    "command": "Attendance.checkAttendance",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "checkAttendance"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "[Not After]{0}  {1}{0}{0}"
+    ]
+  },
+  {
+    "command": "Attendance.getNewAndComebackAttendanceInfo",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "getNewAndComebackAttendanceInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<NewAndComebackStatus>> callback, int attendanceType, List<short> attendanceGroup"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<NewAndComebackStatus>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Attendance.checkEventAttendanceInfo",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "checkEventAttendanceInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, List<short> attendanceGroup"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Attendance.getEventAttendanceInfo",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "getEventAttendanceInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, NewAndComebackStatus> callback, int attendanceType, Nullable<int> attendanceGroup"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "NewAndComebackStatus"
+    ],
+    "strings": [
+      "object"
+    ]
+  },
+  {
+    "command": "Attendance.newAndComebackAttendance",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "newAndComebackAttendance"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, int attendanceType, Nullable<int> attendanceGroup, int index"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "[Not After]{0}  {1}{0}{0}",
+      "object"
+    ]
+  },
+  {
+    "command": "Attendance.comebackAttendanceGetAndTake",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "comebackAttendanceGetAndTake"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, ComebackStatus, List<RecentProvide>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Attendance.ComebackResponse"
+    ],
+    "strings": [
+      "[Not After]{0}  {1}{0}{0}"
+    ]
+  },
+  {
+    "command": "Attendance.getPlayTimeAttendanceInfo",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "getPlayTimeAttendanceInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, PlaytimeAttendance> callback, short playtimeAttendanceCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "PlaytimeAttendance"
+    ],
+    "strings": [
+      "Circular dependency"
+    ]
+  },
+  {
+    "command": "Attendance.playtimeAttendance",
+    "rpc": {
+      "clazz": "Attendance",
+      "method": "playtimeAttendance"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short playtimeAttendanceCode, short rewardNumber"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "[Not After]{0}  {1}{0}{0}"
+    ]
+  },
+  {
+    "command": "CardBook.getList",
+    "rpc": {
+      "clazz": "CardBook",
+      "method": "getList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, CardBookInfo> callback, long targetUserObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "CardBookInfo"
+    ],
+    "strings": []
+  },
+  {
+    "command": "CardBook.regist",
+    "rpc": {
+      "clazz": "CardBook",
+      "method": "regist"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<CardBookThemePointData>> callback, string cardObjectIDList"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<CardBookThemePointData>"
+    ],
+    "strings": [
+      "No media in drive"
+    ]
+  },
+  {
+    "command": "CardBook.getReward",
+    "rpc": {
+      "clazz": "CardBook",
+      "method": "getReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long achievementCode, short achievementType"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "CardBook.setFavoriteGroup",
+    "rpc": {
+      "clazz": "CardBook",
+      "method": "setFavoriteGroup"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, List<int> groupCodeList"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardBook.getFavoriteGroup",
+    "rpc": {
+      "clazz": "CardBook",
+      "method": "getFavoriteGroup"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<int>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<int>"
+    ],
+    "strings": [
+      "Notation"
+    ]
+  },
+  {
+    "command": "CardInventory.equip",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "equip"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long cardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "No media in drive"
+    ]
+  },
+  {
+    "command": "CardInventory.multiEquip",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "multiEquip"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long[] cardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardInventory.unequip",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "unequip"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long cardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardInventory.multiUnequip",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "multiUnequip"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long[] cardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardInventory.upgrade",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "upgrade"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, CardIntensify> callback, long requestCardObjectID, double priceRate, long targetCardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "CardIntensify"
+    ],
+    "strings": [
+      "DHCP address conflict",
+      "EvaluateJS",
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "CardInventory.intensify",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "intensify"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, CardIntensify> callback, long intensifyCardObjectID, double probabilityRate, double priceRate, long[] materialCardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "CardIntensify"
+    ],
+    "strings": [
+      "EvaluateJS",
+      "Portugal",
+      "softness"
+    ]
+  },
+  {
+    "command": "CardInventory.sell",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "sell"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long cardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardInventory.sellBundle",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "sells"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long[] sellArray"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardInventory.getCardList",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "getCardList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Card[]"
+    ],
+    "strings": [
+      "Storage",
+      "login"
+    ]
+  },
+  {
+    "command": "CardInventory.changeTheme",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "changeTheme"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Card> callback, long cardObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "CardInventory.ExchangeTheme"
+    ],
+    "strings": [
+      "Undefined data type: '{0}'."
+    ]
+  },
+  {
+    "command": "CardInventory.lockCard",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "lock"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long cardObjectID, bool isLock"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "CardInventory.multiLock",
+    "rpc": {
+      "clazz": "CardInventory",
+      "method": "multiLock"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long[] cardObjectID, bool isLock"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "DalcomAccount.GetDalcomAccountUrl",
+    "rpc": {
+      "clazz": null,
+      "method": null
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "https://oauth-dev.dalcomsoft.net/v1/account",
+      "https://oauth-dev.dalcomsoft.net/v1/account/info",
+      "https://oauth-dev.dalcomsoft.net/v1/account/state",
+      "https://oauth-dev.dalcomsoft.net/v1/account/verify",
+      "https://oauth-dev.dalcomsoft.net/v1/account/verify/refresh",
+      "https://oauth-dev.dalcomsoft.net/v1/find/id?email={0}&region={1}",
+      "https://oauth-dev.dalcomsoft.net/v1/find/pwd?email={0}&region={1}",
+      "https://oauth-dev.dalcomsoft.net/v1/token",
+      "https://oauth-dev.dalcomsoft.net/v1/user?fields=id,user_id,email,birth_year,gender,mailing,is_linked,enable_reward&access_token={0}",
+      "https://oauth.dalcomsoft.net/v1/account",
+      "https://oauth.dalcomsoft.net/v1/account/info",
+      "https://oauth.dalcomsoft.net/v1/account/state",
+      "https://oauth.dalcomsoft.net/v1/account/verify",
+      "https://oauth.dalcomsoft.net/v1/account/verify/refresh",
+      "https://oauth.dalcomsoft.net/v1/find/id?email={0}&region={1}",
+      "https://oauth.dalcomsoft.net/v1/find/pwd?email={0}&region={1}",
+      "https://oauth.dalcomsoft.net/v1/token",
+      "https://oauth.dalcomsoft.net/v1/user?fields=id,user_id,email,birth_year,gender,mailing,is_linked,enable_reward&access_token={0}"
+    ]
+  },
+  {
+    "command": "DalcomAccount.CreateAccount",
+    "rpc": {
+      "clazz": null,
+      "method": "pass"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "id",
+      "referrer"
+    ]
+  },
+  {
+    "command": "DalcomAccount.AccountStateCheck",
+    "rpc": {
+      "clazz": null,
+      "method": "pass"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "grant_type",
+      "id"
+    ]
+  },
+  {
+    "command": "DalcomAccount.InsertInfo",
+    "rpc": {
+      "clazz": null,
+      "method": "pass"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "birthday",
+      "email",
+      "gender",
+      "grant_type",
+      "id",
+      "isMailing",
+      "region"
+    ]
+  },
+  {
+    "command": "DalcomAccount.CertificateEmailCode",
+    "rpc": {
+      "clazz": null,
+      "method": "email"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "code"
+    ]
+  },
+  {
+    "command": "DalcomAccount.RefreshCertificateEmailCode",
+    "rpc": {
+      "clazz": null,
+      "method": "pass"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "grant_type",
+      "id",
+      "region"
+    ]
+  },
+  {
+    "command": "DalcomAccount.Login",
+    "rpc": {
+      "clazz": null,
+      "method": "pass"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "grant_type",
+      "id"
+    ]
+  },
+  {
+    "command": "DalcomAccount.RefreshToken",
+    "rpc": {
+      "clazz": null,
+      "method": "grant_type"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "refresh_token"
+    ]
+  },
+  {
+    "command": "DalcomAccount.UpdateInfo",
+    "rpc": {
+      "clazz": null,
+      "method": "access_token"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": [
+      "Expected {0}, but actual token at the position {2} is {1}.",
+      "birthday",
+      "gender",
+      "grant_type",
+      "isMailing"
+    ]
+  },
+  {
+    "command": "DalcomAccount.GetInfo",
+    "rpc": {
+      "clazz": null,
+      "method": null
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "DalcomAccount.FindID",
+    "rpc": {
+      "clazz": null,
+      "method": null
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "DalcomAccount.FindPassword",
+    "rpc": {
+      "clazz": null,
+      "method": null
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Game.getFavorites",
+    "rpc": {
+      "clazz": "Game",
+      "method": "getFavorites"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, FavoriteInfo> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "FavoriteInfo"
+    ],
+    "strings": [
+      "\ndepth: "
+    ]
+  },
+  {
+    "command": "Game.setFavorites",
+    "rpc": {
+      "clazz": "Game",
+      "method": "setFavorites"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, List<int> musicAdd, List<int> musicRemove, List<int> groupAdd, List<int> groupRemove"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Game.stageStart",
+    "rpc": {
+      "clazz": "Game",
+      "method": "stageStart"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<SimpleNotice>, int, int, long> callback, short musicCode, short difficult, bool isADFree"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.StageStartResponse",
+      "StageStart"
+    ],
+    "strings": [
+      "Circular dependency",
+      "Storage<{0}, {1}>",
+      "android.hardware.sensor.light"
+    ]
+  },
+  {
+    "command": "Game.rehearsalStageStart",
+    "rpc": {
+      "clazz": "Game",
+      "method": "rehearsalStageStart"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<SimpleNotice>, int> callback, short musicCode, short difficult"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.StageStartResponse",
+      "StageStart"
+    ],
+    "strings": [
+      "Notation",
+      "Storage<{0}, {1}>",
+      "android.hardware.sensor.light"
+    ]
+  },
+  {
+    "command": "Game.superstarLeagueStart",
+    "rpc": {
+      "clazz": "StarLeague",
+      "method": "dalcomStageStart"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, int today, short difficult"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.SuperstarLeagueStartResponse"
+    ],
+    "strings": [
+      "android.hardware.sensor.light"
+    ]
+  },
+  {
+    "command": "Game.arenaLeagueStart",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "stageStart"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<SimpleNotice>, int, int, long> callback, short musicCode, short difficult"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.StageStartResponse",
+      "StageStart"
+    ],
+    "strings": [
+      "Storage<{0}, {1}>",
+      "Too many references: cannot splice",
+      "android.hardware.sensor.light"
+    ]
+  },
+  {
+    "command": "Game.setFavorite",
+    "rpc": {
+      "clazz": null,
+      "method": null
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Game.stageComplete",
+    "rpc": {
+      "clazz": "Game",
+      "method": "stageComplete"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Game.StageCompleteDelegate callback, int score, short miss, short good, short perfect, short sPerfect, short combo, long leaderCardObjectID, bool missionVerify, int collectCount, short missionGood, short missionPerfect, short missionSPerfect, string cardScoreJson"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "StartNegotiation"
+    ]
+  },
+  {
+    "command": "Game.rehearsalStageComplete",
+    "rpc": {
+      "clazz": "Game",
+      "method": "rehearsalStageComplete"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Game.StageCompleteDelegate callback, int score, short miss, short good, short perfect, short sPerfect, short combo, long leaderCardObjectID, bool missionVerify, int collectCount, short missionGood, short missionPerfect, short missionSPerfect"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Upper"
+    ]
+  },
+  {
+    "command": "Game.arenaStageComplete",
+    "rpc": {
+      "clazz": "Arena",
+      "method": "stageComplete"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Game.StageCompleteDelegate callback, int score, short miss, short good, short perfect, short sPerfect, short combo, long leaderCardObjectID, bool missionVerify, int collectCount, short missionGood, short missionPerfect, short missionSPerfect"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Game.superstarLeagueComplete",
+    "rpc": {
+      "clazz": "StarLeague",
+      "method": "dalcomStageComplete"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Game.StageCompleteDelegate callback, int score, short miss, short good, short perfect, short sPerfect, short combo, long leaderCardObjectID, short starMiss, short starGood, short starPerfect, short starSPerfect, short missionGood, short missionPerfect, short missionSPerfect"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Exception of type '{0}' was thrown."
+    ]
+  },
+  {
+    "command": "Game.ResultPlayComplete",
+    "rpc": {
+      "clazz": null,
+      "method": "leagueGiftHeadPhone"
+    },
+    "signature": null,
+    "sends_user_object_id": false,
+    "direct_request": false,
+    "response_types": [
+      "Game.StageCompleteResponse",
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "1.3.133.16.840.63.0",
+      "Custom/Popup_MusicInfo_Old",
+      "Would get Crashlytics data collection if running on a physical device",
+      "[DISPID=0]"
+    ]
+  },
+  {
+    "command": "Game.tutorialStepComplete",
+    "rpc": {
+      "clazz": "Game",
+      "method": "tutorialStepComplete"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short step"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "Upper"
+    ]
+  },
+  {
+    "command": "Game.getStageStatus",
+    "rpc": {
+      "clazz": "Game",
+      "method": "getStageStatus"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Challenge, int> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.StageStatusResponse"
+    ],
+    "strings": [
+      "Data: [",
+      "Storage"
+    ]
+  },
+  {
+    "command": "Game.giveUpChallenge",
+    "rpc": {
+      "clazz": "Game",
+      "method": "giveUpChallenge"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Notation"
+    ]
+  },
+  {
+    "command": "Game.provideRewardAgain",
+    "rpc": {
+      "clazz": "Game",
+      "method": "provideRewardAgain"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long transactionID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Game.getMyRecords",
+    "rpc": {
+      "clazz": "Game",
+      "method": "getMyRecords"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MyRecord>> callback, short musicCode, string year"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.GetMyRecordsResponse"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Game.getMyWorldRecords",
+    "rpc": {
+      "clazz": "Game",
+      "method": "getMyWorldRecords"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MyRecord>, int, int, int, List<LeaderCard>> callback, short musicCode, short worldRecordCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Game.GetMyWorldRecordsResponse"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Game.getUserInfo",
+    "rpc": {
+      "clazz": "Game",
+      "method": "getUserInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, LeagueWeeklyInfo.Ranking, ArenaWeeklyInfo.Ranking, int> callback, long targetUserObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "ArenaWeeklyInfo.Ranking",
+      "LeagueWeeklyInfo.Ranking"
+    ],
+    "strings": [
+      "arenaInfo",
+      "leagueClass",
+      "leagueInfo",
+      "typeName"
+    ]
+  },
+  {
+    "command": "Game.RefreshFirstClearCard",
+    "rpc": {
+      "clazz": "Game",
+      "method": "refreshFirstClearCard"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "short musicCode, Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Bad pathname"
+    ]
+  },
+  {
+    "command": "Game.GetGotchaCard",
+    "rpc": {
+      "clazz": "Game",
+      "method": "getGotchaCard"
+    },
+    "signature": {
+      "returns": "Task<Client.NetworkHandler>",
+      "params": "long gotchaID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "exception processing sig: "
+    ]
+  },
+  {
+    "command": "LeagueWeekly.getRank",
+    "rpc": {
+      "clazz": "LeagueWeekly",
+      "method": "getRank"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, LeagueWeeklyInfo> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "LeagueWeeklyInfo"
+    ],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "LeagueWeekly.getWeeklyReward",
+    "rpc": {
+      "clazz": "LeagueWeekly",
+      "method": "getReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, LeagueWeeklyReward> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "LeagueWeeklyReward"
+    ],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "LeagueWeekly.takeLeagueGiftAll",
+    "rpc": {
+      "clazz": "LeagueWeekly",
+      "method": "takeLeagueGiftAll"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<GiveSendHeadphone>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<GiveSendHeadphone>"
+    ],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "LeagueWeekly.jumpUp",
+    "rpc": {
+      "clazz": "LeagueWeekly",
+      "method": "jumpUp"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "LiveTheme.getList",
+    "rpc": {
+      "clazz": "LiveThemeBook",
+      "method": "getList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, short, List<short>, List<short>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "LiveTheme.LiveThemeGetListResponse"
+    ],
+    "strings": [
+      "Limited login +friends called",
+      "Storage",
+      "ebcdic-cp-fr",
+      "startActivity"
+    ]
+  },
+  {
+    "command": "LiveTheme.setLeader",
+    "rpc": {
+      "clazz": "LiveThemeBook",
+      "method": "setLeader"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long themeCode, bool isSet"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "LiveTheme.equip",
+    "rpc": {
+      "clazz": "LiveThemeBook",
+      "method": "equipCard"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long objectID, bool equip"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "LiveTheme.applyBackground",
+    "rpc": {
+      "clazz": "LiveThemeBook",
+      "method": "equipBackground"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long objectID, bool apply"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "Limited login +friends called"
+    ]
+  },
+  {
+    "command": "Mission.getMissionList",
+    "rpc": {
+      "clazz": "Mission",
+      "method": "getMissionList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MissionInfo>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<MissionInfo>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Mission.getEventMissionList",
+    "rpc": {
+      "clazz": "Mission",
+      "method": "getEventMissionList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MissionInfo>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<MissionInfo>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Mission.getMissionReward",
+    "rpc": {
+      "clazz": "Mission",
+      "method": "getMissionReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long progressId"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "reward"
+    ]
+  },
+  {
+    "command": "Mission.getContentMissionList",
+    "rpc": {
+      "clazz": "Mission",
+      "method": "getContentMissionList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MissionInfo>> callback, List<short> contentsCodeList"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<MissionInfo>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Platform.getTimestamp",
+    "rpc": {
+      "clazz": "Platform",
+      "method": "getTimestamp"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, long> callback, bool isIgnoreAsset = False"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Platform.checkAssetBundle",
+    "rpc": {
+      "clazz": "Platform",
+      "method": "checkAssetBundle"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Platform.OnInstallAsset callback, int clientAssetBundleVersion = -1"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [
+      "AssetContext"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Platform.getClientIP",
+    "rpc": {
+      "clazz": "Platform",
+      "method": "getClientIP"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, string> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "",
+      "The file '{0}' already exists.",
+      "status"
+    ]
+  },
+  {
+    "command": "Platform.getRegion",
+    "rpc": {
+      "clazz": "Platform",
+      "method": "getRegion"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, string, bool> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "2.16.840.1.101.3.4.1.42",
+      "KR",
+      "isStreaming",
+      "region"
+    ]
+  },
+  {
+    "command": "PostBox.takeAttachment",
+    "rpc": {
+      "clazz": "PostBox",
+      "method": "takeAttachment"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long messageObjectID, bool isLimited"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "PostBox.takeAttachmentAll",
+    "rpc": {
+      "clazz": "PostBox",
+      "method": "takeAttachmentAll"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "p must be prime"
+    ]
+  },
+  {
+    "command": "PostBox.takeAttachmentSelectItem",
+    "rpc": {
+      "clazz": "PostBox",
+      "method": "takeAttachmentSelectItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long messageID, int cardCode, bool isLimited"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "PostBox.delete",
+    "rpc": {
+      "clazz": "PostBox",
+      "method": "delete"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, long messageObjectID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": [
+      "p must be prime"
+    ]
+  },
+  {
+    "command": "PostBox.pullNoticeMessage",
+    "rpc": {
+      "clazz": "PostBox",
+      "method": "pullNoticeMessage"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<SimpleNotice>, int> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "StageStart"
+    ],
+    "strings": [
+      "android.hardware.sensor.light",
+      "p must be prime"
+    ]
+  },
+  {
+    "command": "PostBox.getMessageList",
+    "rpc": {
+      "clazz": "PostBox",
+      "method": "getMessageList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "Message[]"
+    ],
+    "strings": [
+      "\ndepth: ",
+      "IsGreekExtended",
+      "Storage",
+      "Upper"
+    ]
+  },
+  {
+    "command": "Promotion.getNewsData",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "getNewsData"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<News>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<News>"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "Promotion.getAdminInfo",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "getAdminInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<ADInfo>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<ADInfo>"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "Promotion.provideAdminReward",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "provideAdminReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, ADType type"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "Promotion.getCollectEventInfo",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "getCollectEventInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, CollectEventInfo> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "CollectEventInfo"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "Promotion.playGotcha",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "playGotcha"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, PlayGotcha> callback, int code, CollectEventBoxOpenType type"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "PlayGotcha"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "Promotion.getGMEvent",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "getGMEventInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, GameEventInfo> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [
+      "GameEventInfo"
+    ],
+    "strings": [
+      "F518AA8781A8DF278ABA4E7D64B7CB9D49462353",
+      "No Location header found for {0}",
+      "PKCS5Padding",
+      "android.hardware.sensor.light"
+    ]
+  },
+  {
+    "command": "Promotion.getUpdateNoticeData",
+    "rpc": {
+      "clazz": "Promotion",
+      "method": "getNoticePopupData"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, UpdateNotice> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [
+      "List<UpdateNoticeInfo>"
+    ],
+    "strings": [
+      "PKCS5Padding"
+    ]
+  },
+  {
+    "command": "StarPass.buyPremiumPassBegin",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "buyPremiumPassBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Nullable<long>> callback, short srarPassCode, string clientVersion, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "StarPass.buyPremiumPassCheck",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "buyPremiumPassCheck"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, RecentProvideWithEvents> callback, long purchaseObjectID, string base64EncodedReceipt, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "RecentProvideWithEvents",
+      "StarPassStateInfo"
+    ],
+    "strings": [
+      "starPassStatus"
+    ]
+  },
+  {
+    "command": "StarPass.buyTier",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "buyTier"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, StarPassStateInfo> callback, int starpassDataCode, short changeTierLevel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "StarPassStateInfo"
+    ],
+    "strings": [
+      "starPassStatus"
+    ]
+  },
+  {
+    "command": "StarPass.getPassStatus",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "getPassStatus"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<StarPassStateInfo>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<StarPassStateInfo>"
+    ],
+    "strings": [
+      "rlgjtjf_epr"
+    ]
+  },
+  {
+    "command": "StarPass.getMissionReward",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "getMissionReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long progressId"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "currentTier",
+      "ebcdic-cp-fr",
+      "previousTier",
+      "reward"
+    ]
+  },
+  {
+    "command": "StarPass.getMissionList",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "getMissionList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MissionInfo>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<MissionInfo>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "StarPass.getTierReward",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "getTierReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, int starpassID, int tier, bool premium"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "reward"
+    ]
+  },
+  {
+    "command": "StarPass.getTierRewardAll",
+    "rpc": {
+      "clazz": "StarPass",
+      "method": "getTierRewardAll"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, int starpassID"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "reward"
+    ]
+  },
+  {
+    "command": "Store.buyRecommendItem",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyRecommendItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "loginSNS"
+    ]
+  },
+  {
+    "command": "Store.getBuyCount",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getBuyCount"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<BuyCount>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<BuyCount>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.getLimitedBuyCount",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getLimitedBuyCount"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": false,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.getConsumableItemCount",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getConsumableItemCount"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<ConsumableItemCount>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<ConsumableItemCount>"
+    ],
+    "strings": [
+      "Instance is read-only."
+    ]
+  },
+  {
+    "command": "Store.getMembership",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getMembership"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<MembershipReward>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<MembershipReward>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyCardPack",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyCardPack"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyCardPack",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyCardPack"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short code, long targetUserObjectID, string description"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyHeadphone",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyHeadphone"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyHeadphone",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyHeadphone"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short code, long targetUserObjectID, string description"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyRhythmPoint",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyRhythmPoint"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyRhythmPoint",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyRhythmPoint"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short code, long targetUserObjectID, string description"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyDiamondBegin",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyDiamondBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Nullable<long>> callback, short code, string clientVersion, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.buyDiamondCheck",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyDiamondCheck"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, RecentProvideWithEvents> callback, long purchaseObjectID, string base64EncodedReceipt, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "RecentProvideWithEvents"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyRecommendItemBegin",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyRecommendItemBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Nullable<long>> callback, short code, string clientVersion, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.buyRecommendItemCheck",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyRecommendItemCheck"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, RecentProvideWithEvents> callback, long purchaseObjectID, string base64EncodedReceipt, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "RecentProvideWithEvents"
+    ],
+    "strings": [
+      "Storage<{0}, {1}>"
+    ]
+  },
+  {
+    "command": "Store.buyPopupStoreBegin",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyPopupStoreBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Nullable<long>> callback, short code, string clientVersion, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.buyPopupStoreCheck",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyPopupStoreCheck"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, RecentProvideWithEvents> callback, long purchaseObjectID, string base64EncodedReceipt, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "RecentProvideWithEvents"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.isAvailablePopupStore",
+    "rpc": {
+      "clazz": "Store",
+      "method": "isAvailablePopupStore"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<AvailablePopupStore>> callback, List<short> popupStoreCodeList, Action<int, AvailablePopupStore> availableListener"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<AvailablePopupStore>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyInvenExpand",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyInvenExpand"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.getPurchaseEvent",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getPurchaseEvent"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<PurchaseEventStatus>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<PurchaseEventStatus>"
+    ],
+    "strings": [
+      "No media in drive"
+    ]
+  },
+  {
+    "command": "Store.buySpecialItem",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buySpecialItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.getSelectCardItem",
+    "rpc": {
+      "clazz": "Store",
+      "method": "selectItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long storeCode, int cardCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.getSelectArtistCardItem",
+    "rpc": {
+      "clazz": "Store",
+      "method": "selectItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>, List<CardControl.Data>> callback, long storeCode, int groupCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyLobbyBgItem",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyLobbyBgItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.buyLobbyBgItemBegin",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyLobbyBgItemBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Nullable<long>> callback, short code, string clientVersion, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.buyLobbyBgItemCheck",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyLobbyBgItemCheck"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, RecentProvideWithEvents> callback, long purchaseObjectID, string base64EncodedReceipt, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "RecentProvideWithEvents"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.getStoreCardPackPoint",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getStoreCardPackPoint"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<PointRewardInfo>> callback, bool loginState = False"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<PointRewardInfo>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.getPointReward",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getPointReward"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code, Nullable<int> cardCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": [
+      "object"
+    ]
+  },
+  {
+    "command": "Store.getMyStoreInfo",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getMyStoreInfo"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, MyStoreInfo> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "MyStoreInfo"
+    ],
+    "strings": [
+      "No media in drive"
+    ]
+  },
+  {
+    "command": "Store.buyMyStore",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyMyStore"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, long code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.resetMyStoreList",
+    "rpc": {
+      "clazz": "Store",
+      "method": "resetMyStoreList"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, MyStoreInfo> callback, int resetCount"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "MyStoreInfo"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyArtistPack",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyArtistPack"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<RecentProvide>> callback, short code"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<RecentProvide>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.getMyArtistPack",
+    "rpc": {
+      "clazz": "Store",
+      "method": "getMyArtistPack"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, List<ArtistPackContext>> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "List<ArtistPackContext>"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.buyArtistPackBegin",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyArtistPackBegin"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, Nullable<long>> callback, short code, string clientVersion, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.buyArtistPackCheck",
+    "rpc": {
+      "clazz": "Store",
+      "method": "buyArtistPackCheck"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, RecentProvideWithEvents> callback, long purchaseObjectID, string base64EncodedReceipt, Channel channel"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "RecentProvideWithEvents"
+    ],
+    "strings": []
+  },
+  {
+    "command": "Store.equipArtistPack",
+    "rpc": {
+      "clazz": "Store",
+      "method": "equipArtistPack"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler> callback, short code, bool isEquip"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [],
+    "strings": []
+  },
+  {
+    "command": "Store.checkDuplicateItem",
+    "rpc": {
+      "clazz": "Store",
+      "method": "checkDuplicateItem"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, DuplicateItemCheck> callback, short storeType, int storeCode"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "DuplicateItemCheck"
+    ],
+    "strings": []
+  },
+  {
+    "command": "SuperstarLeague.GetRank",
+    "rpc": {
+      "clazz": "StarLeague",
+      "method": "getRank"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, SuperstarLeagueRank> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "SuperstarLeagueRank"
+    ],
+    "strings": [
+      "p must be prime"
+    ]
+  },
+  {
+    "command": "SuperstarLeague.GetMusic",
+    "rpc": {
+      "clazz": "StarLeague",
+      "method": "getWeekPlayMusic"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, SuperstarLeagueMusic> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "SuperstarLeagueMusic"
+    ],
+    "strings": []
+  },
+  {
+    "command": "SuperstarLeague.ChangeMusic",
+    "rpc": {
+      "clazz": "StarLeague",
+      "method": "changeMusic"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, ChangeMusic> callback, int selectDay"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "ChangeMusic"
+    ],
+    "strings": [
+      ".26"
+    ]
+  },
+  {
+    "command": "SuperstarLeague.GetReward",
+    "rpc": {
+      "clazz": "StarLeague",
+      "method": "getDalcomStageReword"
+    },
+    "signature": {
+      "returns": "Client.NetworkHandler",
+      "params": "Action<Client.NetworkHandler, SuperstarLeagueReward> callback"
+    },
+    "sends_user_object_id": true,
+    "direct_request": true,
+    "response_types": [
+      "SuperstarLeagueReward"
+    ],
+    "strings": []
+  }
+]

@@ -1,0 +1,348 @@
+{
+  "target": "unpacked/arm64/lib/arm64-v8a/libil2cpp.so",
+  "game_version": "2.12.4",
+  "patches": [
+    {
+      "name": "title-skip-login-select",
+      "description": "TitleScene.SetStateSelectLogin(this, toggleIndex) branches straight to SetStateGuestLogin(this), so the login-method popup never shows.",
+      "va": "0x14A44CC",
+      "file_offset": "0x14A34CC",
+      "original": "fe0f1df8",
+      "patched": "7bfaff17",
+      "asm": "b 0x14A2EB8"
+    },
+    {
+      "name": "skip-terms",
+      "description": "TitleScene.SetStateTermsAndPolicy() branches to SetStateLoading(), which is what it does when terms were already accepted: no terms/privacy screen.",
+      "va": "0x14A2FD0",
+      "file_offset": "0x14A1FD0",
+      "original": "fe5fbda9",
+      "patched": "e1000014",
+      "asm": "b 0x14A3354"
+    },
+    {
+      "name": "account-always-exists",
+      "description": "LoginControl.get_AccountCode: PlayerPrefs.GetString(key, \"\") gets the key itself as default instead of \"\" (was ldr x1, [x21]). A fresh install therefore has a non-empty account code and the title screen goes straight to auto-login.",
+      "va": "0x14D5AE0",
+      "file_offset": "0x14D4AE0",
+      "original": "a10240f9",
+      "patched": "810240f9",
+      "asm": "ldr x1, [x20]"
+    },
+    {
+      "name": "login-always-available",
+      "description": "LoginControl.get_IsLoginAvailable returns true, so the title screen treats the account as usable on a fresh install.",
+      "va": "0x14DEED8",
+      "file_offset": "0x14DDED8",
+      "original": "fe0f1ff805000094",
+      "patched": "20008052c0035fd6",
+      "asm": "mov w0, #1; ret"
+    },
+    {
+      "name": "grant-all-permissions",
+      "description": "NetworkControl.CheckPermission(permission, callback) invokes the callback right away (if not null): the game never asks for phone/storage/media permissions.",
+      "va": "0x14F82F0",
+      "file_offset": "0x14F72F0",
+      "original": "fe0f1df8f65701a9f44f02a953c300f076b2009068f25d39",
+      "patched": "a10000b4202040f9220c40f9211440f940001fd6c0035fd6",
+      "asm": "cbz x1, 0x14F8304; ldr x0, [x1, #64]; ldr x2, [x1, #24]; ldr x1, [x1, #40]; br x2; ret"
+    },
+    {
+      "name": "skip-download-confirm",
+      "description": "AssetControl.OnDownloadConfirm: instead of ViewControl.OpenLocalePopup(53, message, callback), invoke the callback (in x20) with isOk=true, so the 'N MB of resources will be downloaded' confirmation never shows.",
+      "va": "0x14B2A4C",
+      "file_offset": "0x14B1A4C",
+      "original": "a0068052e10313aae20314aae3031faafc8d0194",
+      "patched": "802240f9890e40f9821640f92100805220013fd6",
+      "asm": "ldr x0, [x20, #64]; ldr x9, [x20, #24]; ldr x2, [x20, #40]; mov w1, #1; blr x9"
+    },
+    {
+      "name": "skip-tutorial-proceed-dialog",
+      "description": "TutorialAssist.OpenAccountConfirmPopup: the end-of-tutorial 'Do you wish to proceed? (Reset / Proceed)' dialog is skipped by calling its callback <OpenAccountConfirmPopup>b__10_0(this, isOk=true).",
+      "va": "0x1455154",
+      "file_offset": "0x1454154",
+      "original": "fe0f1bf8fa6701a9",
+      "patched": "21008052eb010014",
+      "asm": "mov w1, #1; b 0x1455904"
+    },
+    {
+      "name": "skip-attendance-popup",
+      "description": "AttendanceAssist.OpenAttendancePopup(this, isChanged) branches to AttendanceAssist.Complete(this, isChanged): the daily attendance popup is skipped.",
+      "va": "0x13BFE2C",
+      "file_offset": "0x13BEE2C",
+      "original": "ff0302d1",
+      "patched": "f4ffff17",
+      "asm": "b 0x13BFDFC"
+    },
+    {
+      "name": "no-dalcom-account-event",
+      "description": "LobbyScene.SetDalcomAccountEvent() branches to SetStateUpdateNotice(), its next step: the Dalcom account promo popup in the lobby never shows.",
+      "va": "0x1484700",
+      "file_offset": "0x1483700",
+      "original": "fe57bea9",
+      "patched": "4a000014",
+      "asm": "b 0x1484828"
+    },
+    {
+      "name": "skip-song-download-confirm",
+      "description": "InstallMusicAssist.OpenDownloadConfirmPopup(this, md, fileSize) branches to OpenInstallMusicPopup(this, md), what its Download button does: songs download without asking.",
+      "va": "0x1403A30",
+      "file_offset": "0x1402A30",
+      "original": "ff8301d1",
+      "patched": "de000014",
+      "asm": "b 0x1403DA8"
+    },
+    {
+      "name": "no-login-queue",
+      "description": "TitleScene.RequestSequentialLogin(callback) invokes the callback right away: no login queue check at ssg-login.dalcomsoft.net (the host is gone; the game waited forever).",
+      "va": "0x14A3A18",
+      "file_offset": "0x14A2A18",
+      "original": "fe0f1df8f65701a9f44f02a914c60090f5b400d088be5139",
+      "patched": "a10000b4202040f9220c40f9211440f940001fd6c0035fd6",
+      "asm": "cbz x1, 0x14A3A2C; ldr x0, [x1, #64]; ldr x2, [x1, #24]; ldr x1, [x1, #40]; br x2; ret"
+    },
+    {
+      "name": "no-login-queue-leave",
+      "description": "LoginControl.SequentialLoginCancel() (called when the app is suspended) returns immediately instead of telling ssg-login.dalcomsoft.net that we left the queue.",
+      "va": "0x14DFF24",
+      "file_offset": "0x14DEF24",
+      "original": "fe67bca9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "lobby-skip-ad-info",
+      "description": "LobbyScene.<SetStateAdInfo>b__20_0 (reply to Promotion.getAdminInfo): right after LoadingIndicator.Complete, continue with SetStateTakeHeadphone instead of setting up the ad timer, ad button and message mark (which threw offline and left the lobby empty).",
+      "va": "0x1489AC0",
+      "file_offset": "0x1488AC0",
+      "original": "9fa20f71",
+      "patched": "30000014",
+      "asm": "b 0x1489B80"
+    },
+    {
+      "name": "store-hide-tab-helper",
+      "description": "Helper (in the dead body of TitleScene.SetStateSelectLogin): hides a StorePopup.Menu's tab button, i.e. the parent of its first state image (stateObjs[0]). Used by store-hide-tabs.",
+      "va": "0x14A44D0",
+      "file_offset": "0x14A34D0",
+      "original": "f65701a9f44f02a9f5c500f0f6b400b0a8c65139d6be45f9f303012af40300aa88010037e0b400b0004046f9e0c3f597e0b400b000bc45f9ddc3f597e0b400b0004446f9dac3f59728008052a8c61139c20240f901018052",
+      "patched": "fe4fbfa9080840f9480200b4091940b909020034001140f9c00100b4e1031faac5894b94600100b4e1031faa50a84b94000100b4e1031faae77f4b94a00000b4e1031f2ae2031faafe4fc1a8e9894b14fe4fc1a8c0035fd6",
+      "asm": "stp x30, x19, [sp, #-16]!; ldr x8, [x0, #16]; cbz x8, 0x14a4520; ldr w9, [x8, #24]; cbz w9, 0x14a4520; ldr x0, [x8, #32]; cbz x0, 0x14a4520; mov x1, xzr; bl 0x2786c04; cbz x0, 0x14a4520; mov x1, xzr; bl 0x278e63c; cbz x0, 0x14a4520; mov x1, xzr; bl 0x27844a4; cbz x0, 0x14a4520; mov w1, wzr; mov x2, xzr; ldp x30, x19, [sp], #16; b 0x2786cc0; ldp x30, x19, [sp], #16; ret"
+    },
+    {
+      "name": "store-remap-helper",
+      "description": "Helper for store-open-card-packs: every store type except RhythmPoint (3) becomes CardPack (5), then continues in StorePopup.SetState.",
+      "va": "0x14A4528",
+      "file_offset": "0x14A3528",
+      "original": "e00314aa9abd0c94885e40b91f15007128020054",
+      "patched": "3f0c0071a90080522100891af303012ae0dafa17",
+      "asm": "cmp w1, #3; mov w9, #5; csel w1, w1, w9, eq; mov w19, w1; b 0x135B0B8"
+    },
+    {
+      "name": "store-open-card-packs",
+      "description": "StorePopup.SetState(type): the hidden tabs (recommended, diamonds, headphones, inventory) open the card packs instead, e.g. when the game sends the player to the diamond shop.",
+      "va": "0x135B0B4",
+      "file_offset": "0x135A0B4",
+      "original": "f303012a",
+      "patched": "1d250514",
+      "asm": "b 0x14a4528"
+    },
+    {
+      "name": "store-hide-tab-0",
+      "description": "StorePopup.OnBuild: menu 0 (Recommend) is hidden instead of getting its title. Real-money offers, headphones (unlimited offline) and inventory slots (set by the server) aren't needed.",
+      "va": "0x135AC34",
+      "file_offset": "0x1359C34",
+      "original": "fe000094",
+      "patched": "27260594",
+      "asm": "bl 0x14a44d0"
+    },
+    {
+      "name": "store-hide-tab-1",
+      "description": "StorePopup.OnBuild: menu 1 (Diamond) is hidden instead of getting its title. Real-money offers, headphones (unlimited offline) and inventory slots (set by the server) aren't needed.",
+      "va": "0x135AC70",
+      "file_offset": "0x1359C70",
+      "original": "ef000094",
+      "patched": "18260594",
+      "asm": "bl 0x14a44d0"
+    },
+    {
+      "name": "store-hide-tab-4",
+      "description": "StorePopup.OnBuild: menu 4 (Headphone) is hidden instead of getting its title. Real-money offers, headphones (unlimited offline) and inventory slots (set by the server) aren't needed.",
+      "va": "0x135AD24",
+      "file_offset": "0x1359D24",
+      "original": "c2000094",
+      "patched": "eb250594",
+      "asm": "bl 0x14a44d0"
+    },
+    {
+      "name": "store-hide-tab-6",
+      "description": "StorePopup.OnBuild: menu 6 (InvenExpand) is hidden instead of getting its title. Real-money offers, headphones (unlimited offline) and inventory slots (set by the server) aren't needed.",
+      "va": "0x135AD9C",
+      "file_offset": "0x1359D9C",
+      "original": "a4000094",
+      "patched": "cd250594",
+      "asm": "bl 0x14a44d0"
+    },
+    {
+      "name": "store-hide-popup-shop-helper",
+      "description": "Helper for store-hide-popup-shop: deactivates the parent of StorePopup.popupStoreText (the Pop-up Shop button).",
+      "va": "0x14A453C",
+      "file_offset": "0x14A353C",
+      "original": "6996ffd0291521918a0000102b6968384a090b8b40011fd6e00314aaf44f42a9f65741a9fe0743f828000014e00314aaf44f42a9f65741a9fe0743f858000014e8b400b0084146f9000140f9",
+      "patched": "fe27bfa9602241f9e00100b4e1031faac77f4b94800100b4e1031faa39a84b94200100b4e1031faad07f4b94c00000b4e1031f2ae2031faad3894b941f2003d51f2003d5fe27c1a8c0035fd6",
+      "asm": "stp x30, x9, [sp, #-16]!; ldr x0, [x19, #576]; cbz x0, 0x14a4580; mov x1, xzr; bl 0x2784468; cbz x0, 0x14a4580; mov x1, xzr; bl 0x278e63c; cbz x0, 0x14a4580; mov x1, xzr; bl 0x27844a4; cbz x0, 0x14a4580; mov w1, wzr; mov x2, xzr; bl 0x2786cc0; nop; nop; ldp x30, x9, [sp], #16; ret"
+    },
+    {
+      "name": "store-hide-popup-shop",
+      "description": "StorePopup.OnBuild: instead of setting the Pop-up Shop button's label, hide the button (the pop-up shop only had real-money offers).",
+      "va": "0x135AE80",
+      "file_offset": "0x1359E80",
+      "original": "682e41f9a80c00b4",
+      "patched": "af25059408000014",
+      "asm": "bl 0x14a453c; b 0x135AEA4"
+    },
+    {
+      "name": "hide-left-menu",
+      "description": "LobbyView.InitMenus: always take the 'left menu closed' branch (the menu with Mission starts slid out of view), and fetch leftArrowOff.parent.gameObject (the arrow button's frame) instead of leftArrowOff.gameObject, so hide-left-menu-arrow hides the whole button. The left menu only has missions, which are empty offline.",
+      "va": "0x1377FF0",
+      "file_offset": "0x1376FF0",
+      "original": "608240f9c00d00b4e1031faa2a315094600d00b4b5010036",
+      "patched": "608240f9e1031faa91595094e1031faa293150940d000014",
+      "asm": "ldr x0, [x19, #256]; mov x1, xzr; bl 0x278e63c; mov x1, xzr; bl 0x27844a4; b 0x1378038"
+    },
+    {
+      "name": "hide-left-menu-arrow",
+      "description": "Second half of hide-left-menu: in the 'closed' branch of LobbyView.InitMenus, SetActive(false) instead of true for the left arrow button (its frame).",
+      "va": "0x1378038",
+      "file_offset": "0x1377038",
+      "original": "21008052",
+      "patched": "e1031f2a",
+      "asm": "mov w1, wzr"
+    },
+    {
+      "name": "hide-message-button-helper",
+      "description": "Helper for hide-message-button: deactivates the parent of LobbyView.messageNewMark[0] (the Message button in the right menu).",
+      "va": "0x14A4588",
+      "file_offset": "0x14A3588",
+      "original": "44c4f597e8b400b0084546f9e10314aae3031faaf50300aa020140f986c1fe97e00315aae103132af44f42a9f65741a9e2031faafe0743f886befe17e00314aaf44f42a9f65741a9fe0743f87b000014e00314aa",
+      "patched": "fe4fbfa9086840f9280200b4091940b9e9010034001140f9a00100b4e1031faab07f4b94e1031faa23a84b94000100b4e1031faaba7f4b94a00000b4e1031f2ae2031faafe4fc1a8bc894b14fe4fc1a8c0035fd6",
+      "asm": "stp x30, x19, [sp, #-16]!; ldr x8, [x0, #208]; cbz x8, 0x14a45d4; ldr w9, [x8, #24]; cbz w9, 0x14a45d4; ldr x0, [x8, #32]; cbz x0, 0x14a45d4; mov x1, xzr; bl 0x2784468; mov x1, xzr; bl 0x278e63c; cbz x0, 0x14a45d4; mov x1, xzr; bl 0x27844a4; cbz x0, 0x14a45d4; mov w1, wzr; mov x2, xzr; ldp x30, x19, [sp], #16; b 0x2786cc0; ldp x30, x19, [sp], #16; ret"
+    },
+    {
+      "name": "hide-message-button",
+      "description": "LobbyView.SetMessageNewMark(isShow), which LobbyScene.OnUpdate keeps calling: hide the Message button instead of toggling its 'new' badge. The message box has no content offline (and waited forever for it).",
+      "va": "0x13784C8",
+      "file_offset": "0x13774C8",
+      "original": "fe4fbfa9",
+      "patched": "30b00414",
+      "asm": "b 0x14a4588"
+    },
+    {
+      "name": "hide-message-button-always",
+      "description": "LobbyScene.OnUpdate: check the message mark on every update, not only when there are new messages, so hide-message-button runs.",
+      "va": "0x1483560",
+      "file_offset": "0x1482560",
+      "original": "68010034",
+      "patched": "1f2003d5",
+      "asm": "nop"
+    },
+    {
+      "name": "hide-message-button-state",
+      "description": "LobbyView.GetMessageMarkState returns false, so LobbyScene.OnUpdate calls SetMessageNewMark (hide-message-button) every time.",
+      "va": "0x1378448",
+      "file_offset": "0x1377448",
+      "original": "fe0f1ff8086440f9",
+      "patched": "e0031f2ac0035fd6",
+      "asm": "mov w0, wzr; ret"
+    },
+    {
+      "name": "default-language-helper",
+      "description": "Helper for default-language-from-device: LanguageConvert.ConvertLanguage(Application.systemLanguage), i.e. the device language, English for languages the game doesn't have.",
+      "va": "0x14A45DC",
+      "file_offset": "0x14A35DC",
+      "original": "f44f42a9f65741a9fe0743f8a8000014e00314aaf44f42a9f65741a9",
+      "patched": "fe4fbfa9e0031faa48f34a94e1031faa22b60694fe4fc1a8c0035fd6",
+      "asm": "stp x30, x19, [sp, #-16]!; mov x0, xzr; bl 0x2761304; mov x1, xzr; bl 0x1651E74; ldp x30, x19, [sp], #16; ret"
+    },
+    {
+      "name": "default-language-from-device",
+      "description": "LocaleControl.get_LanguageCode: PlayerPrefs 'language' defaults to the device language instead of the build language (Korean). The original game set it from the device in TitleScene.SetStateSelectLanguage, which our auto-login skips; a language chosen in the settings is still kept.",
+      "va": "0x14DD96C",
+      "file_offset": "0x14DC96C",
+      "original": "e3cf0094",
+      "patched": "1c1bff97",
+      "asm": "bl 0x14a45dc"
+    },
+    {
+      "name": "hide-parent-helper",
+      "description": "Helper (in the dead body of InstallMusicAssist.OpenDownloadConfirmPopup): x0 = a component; deactivates its parent GameObject. Used by hide-menu-attendance and hide-menu-notice.",
+      "va": "0x1403A34",
+      "file_offset": "0x1402A34",
+      "original": "e80b00fdfe0f00f9fa6702a9f85f03a9f65704a9f44f05a9f3ca00f0d6b900d068027a39d6a640f9081ca04ef40301aaf50300aae8040037a0b900b0005041f9",
+      "patched": "fe4fbfa9a00100b4e1031faa8a024e94e1031faafd2a4e94000100b4e1031faa94024e94a00000b4e1031f2ae2031faafe4fc1a8960c4e14fe4fc1a8c0035fd6",
+      "asm": "stp x30, x19, [sp, #-16]!; cbz x0, 0x1403a6c; mov x1, xzr; bl 0x2784468; mov x1, xzr; bl 0x278e63c; cbz x0, 0x1403a6c; mov x1, xzr; bl 0x27844a4; cbz x0, 0x1403a6c; mov w1, wzr; mov x2, xzr; ldp x30, x19, [sp], #16; b 0x2786cc0; ldp x30, x19, [sp], #16; ret"
+    },
+    {
+      "name": "hide-menu-attendance",
+      "description": "TopView.SetMoreButton: instead of setting the Attendance label, hide the Attendance button in the ☰ menu (attendance is skipped offline, the button did nothing).",
+      "va": "0x13A7BAC",
+      "file_offset": "0x13A6BAC",
+      "original": "808e40f9e00200b4080040f9e10316aa09f542f902f942f920013fd6",
+      "patched": "808e40f9a16f01941f2003d51f2003d51f2003d51f2003d51f2003d5",
+      "asm": "ldr x0, [x20, #280]; bl 0x1403a34; nop; nop; nop; nop; nop"
+    },
+    {
+      "name": "hide-menu-notice",
+      "description": "TopView.SetMoreButton: instead of setting the Notice label, hide the Notice button in the ☰ menu (there are no notices offline, the button did nothing).",
+      "va": "0x13A7BC8",
+      "file_offset": "0x13A6BC8",
+      "original": "809240f9000200b4080040f9e10315aa09f542f902f942f920013fd6",
+      "patched": "809240f99a6f01941f2003d51f2003d51f2003d51f2003d51f2003d5",
+      "asm": "ldr x0, [x20, #288]; bl 0x1403a34; nop; nop; nop; nop; nop"
+    },
+    {
+      "name": "no-restart-after-background",
+      "description": "SystemControl.CheckRestart() returns false: resuming the app after a long time in the background no longer restarts the game at the title screen (it compared the time since the pause with a limit; the only caller is SystemControl.AppResume). Offline there is no session to refresh.",
+      "va": "0x1504230",
+      "file_offset": "0x1503230",
+      "original": "e923bd6dfe0b00f9",
+      "patched": "e0031f2ac0035fd6",
+      "asm": "mov w0, wzr; ret"
+    },
+    {
+      "name": "download-50-at-a-time-1",
+      "description": "WWWFile..cctor: LoadSlotCapacity (how many files the client downloads at the same time) is 50, as in SSOMG's newer engine, instead of 4. The first-launch download of thousands of small files from the local server was limited by this. LoadSlotCounter (next field) stays 0 as statics start zeroed.",
+      "va": "0x160D640",
+      "file_offset": "0x160C640",
+      "original": "205d41fd",
+      "patched": "4b068052",
+      "asm": "mov w11, #50 (was: ldr d0, [x9, #696], the shared constant {4, 0})"
+    },
+    {
+      "name": "download-50-at-a-time-2",
+      "description": "WWWFile..cctor: LoadSlotCapacity (how many files the client downloads at the same time) is 50, as in SSOMG's newer engine, instead of 4. The first-launch download of thousands of small files from the local server was limited by this. LoadSlotCounter (next field) stays 0 as statics start zeroed.",
+      "va": "0x160D65C",
+      "file_offset": "0x160C65C",
+      "original": "001500fd",
+      "patched": "0b2900b9",
+      "asm": "str w11, [x8, #40] (was: str d0, [x8, #40])"
+    },
+    {
+      "name": "hide-dalcom-id-banner",
+      "description": "InfoPopup.OnRefresh (My Info, info tab): the 'Dalcom ID / Register' banner (joinDalcomAccount) is always hidden. There are no accounts offline.",
+      "va": "0x1338984",
+      "file_offset": "0x1337984",
+      "original": "e2031faa",
+      "patched": "e1031f2a",
+      "asm": "mov w1, wzr (was: mov x2, xzr; x2 is SetActive's unused MethodInfo)"
+    },
+    {
+      "name": "hide-account-view",
+      "description": "InfoAccountView.Refresh (the account box in My Info: guest notice, Delete account, Operation policy, Sign in, Clear data) deactivates its own GameObject instead of filling it in. There are no accounts offline.",
+      "va": "0x138BAEC",
+      "file_offset": "0x138AAEC",
+      "original": "fe0f1bf8fa6701a9f85f02a9f65703a9f44f04a9b5ce00f0a86e6539f30301aaf40300aa",
+      "patched": "fe4fbfa9e1031faa6ce24f94fe4fc1a8800000b4e1031f2ae2031faa6eec4f14c0035fd6",
+      "asm": "str/bl Component.get_gameObject; SetActive(false); ret"
+    }
+  ]
+}

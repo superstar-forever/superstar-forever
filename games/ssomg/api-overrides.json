@@ -1,0 +1,46 @@
+{
+  "_comment": "Hand-written default results, merged over the generated ones by tools/build-server-data.py. Keys are 'Class.method' as sent by the game. Add entries here when the real app needs a different shape than the model-based default (see Unity exceptions in logcat).",
+  "Store.getMyStoreInfo": {
+    "myStoreList": [],
+    "myStoreDate": 0
+  },
+  "_news": "Promotion.getNewsData: the lobby news banner (bannerLocate 1 = LOBBY; image drawn by tools/news_banner.py, the server points the URL to itself). The client shows only entries with targetLanguage 0 in a Korean build and only entries with another language otherwise, so the banner is listed for both. A null uri or start/end time throws.",
+  "Promotion.getNewsData": [
+    {
+      "ObjectID": 1,
+      "targetLanguage": 0,
+      "image": "http://offline.local/news/offline-edition.png",
+      "uri": "ss://offline",
+      "orderIndex": 1,
+      "externalUrl": 0,
+      "textColor": "",
+      "bannerLocate": 1,
+      "bannerPosition": 0,
+      "startAtuse": false,
+      "endAtuse": false,
+      "newIconUse": false,
+      "popularIconUse": false,
+      "deadlineIconUse": false,
+      "startAt": 1577836800000,
+      "endAt": 4102444800000
+    },
+    {
+      "ObjectID": 2,
+      "targetLanguage": 1,
+      "image": "http://offline.local/news/offline-edition.png",
+      "uri": "ss://offline",
+      "orderIndex": 1,
+      "externalUrl": 0,
+      "textColor": "",
+      "bannerLocate": 1,
+      "bannerPosition": 0,
+      "startAtuse": false,
+      "endAtuse": false,
+      "newIconUse": false,
+      "popularIconUse": false,
+      "deadlineIconUse": false,
+      "startAt": 1577836800000,
+      "endAt": 4102444800000
+    }
+  ]
+}

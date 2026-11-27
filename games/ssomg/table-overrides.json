@@ -1,0 +1,109 @@
+{
+  "_comment": "Changes to master data tables, applied by tools/build-server-data.py. Keys are table names from the asset context (a.json). A rule either sets fields on every row matching 'match' ({\"match\": ..., \"set\": ...}) or removes those rows ({\"match\": ..., \"remove\": true}; an empty match removes all rows). A list as a match value means 'any of these'. Changed tables get their version bumped, so installed games re-download them.",
+  "ArtistTypeData": [
+    {
+      "_why": "Artist type 2 (former members, i.e. Jiho) is EXISTING_CONTENT_EXPOSE (viewType 1): the profile picker etc. show her only in reduced form. Make it EXPOSE (0) like current members.",
+      "match": {
+        "code": 2
+      },
+      "set": {
+        "viewType": 0
+      }
+    }
+  ],
+  "AttendanceManagementData": [
+    {
+      "_why": "Row 2 runs the daily play time event (playtimeAttendanceCode 1, until 2099): rewards for 5-60 minutes of play per day, reset at midnight. Hidden offline (daily reset, and the play time is counted on the phone). PlaytimeAttendanceControl.UpdateServerTime treats a missing code as 'no event' and shows no icon.",
+      "match": {
+        "code": 2
+      },
+      "set": {
+        "playtimeAttendanceCode": null
+      }
+    }
+  ],
+  "StoreMenuData": [
+    {
+      "_why": "Real-money and ad tabs (packages, incl. the Power Up Package added in 2025, diamonds, headphones, ads, weekly deals) and the store home, whose banners were all real-money offers. Also: burning tickets (4004) and level transfer tickets (4005), which were event items that can't be bought; My Store (6000, server-generated personal offers; the page polls getMyStoreInfo forever); inventory expansion (9000; the inventory size is set by the server, tools/progression.json); the pop-up shop (10000, real-money offers, emptied with PopupStoreData). When the game asks for a store type that no longer has a tab (e.g. 'not enough diamonds'), the libil2cpp patches store-missing-tab-no-crash and store-fallback-card-packs-* open the card packs instead.",
+      "match": {
+        "code": [
+          0,
+          100,
+          101,
+          102,
+          103,
+          200,
+          201,
+          11000,
+          2500,
+          2501,
+          2502,
+          3000,
+          3002,
+          4004,
+          4005,
+          6000,
+          9000,
+          10000
+        ]
+      },
+      "remove": true
+    }
+  ],
+  "StoreHomeData": [
+    {
+      "_why": "Store home banners; all five linked to real-money tabs (packages, weekly deals, diamonds).",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "RecommendStoreData": [
+    {
+      "_why": "Real-money packages.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "DiamondStoreData": [
+    {
+      "_why": "Diamonds for real money.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "WeeklyStoreData": [
+    {
+      "_why": "Weekly deals (mostly real money, calendar-based).",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "PopupStoreData": [
+    {
+      "_why": "Real-money popup offers.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "StarPassStoreData": [
+    {
+      "_why": "Real-money star passes.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "AdStoreData": [
+    {
+      "_why": "Rewards for watching ads.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "HeadphoneStoreData": [
+    {
+      "_why": "Headphones (stamina) are unlimited offline.",
+      "match": {},
+      "remove": true
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "_comment": "Changes to master data tables, applied by tools/build-server-data.py. Keys are table names from the asset context (a.json). A rule either sets fields on every row matching 'match' ({\"match\": ..., \"set\": ...}) or removes those rows ({\"match\": ..., \"remove\": true}; an empty match removes all rows). A list as a match value means 'any of these'. Changed tables get their version bumped, so installed games re-download them.",
+  "AttendanceManagementData": [
+    {
+      "_why": "Row 2 runs the daily play time event (playtimeAttendanceCode 1, until 2099), as in SSOMG: rewards for 5-60 minutes of play per day, reset at midnight. Hidden offline (daily reset, the play time is counted on the phone); a missing code means 'no event'.",
+      "match": {
+        "code": 2
+      },
+      "set": {
+        "playtimeAttendanceCode": null
+      }
+    }
+  ],
+  "StoreMenuData": [
+    {
+      "_why": "Store home (0), recommended/real-money packages (101-103), diamonds (3000), headphones (3002), My Store (6000), inventory expansion (9000; the inventory size is set by the server, progression.json), pop-up shop (10000). Kept: card packs (2000/2001), RP exchange (3001), lobby wallpapers (7000/7001), artist packs (8000); the special store tabs (4000-4003) are locked in the table already. A store type without a tab opens the card packs (libil2cpp store-missing-tab-no-crash, store-fallback-card-packs-*).",
+      "match": {
+        "code": [
+          0,
+          101,
+          102,
+          103,
+          3000,
+          3002,
+          6000,
+          9000,
+          10000
+        ]
+      },
+      "remove": true
+    }
+  ],
+  "StoreHomeData": [
+    {
+      "_why": "Store home banners (real-money offers).",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "RecommendStoreData": [
+    {
+      "_why": "Real-money packages.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "DiamondStoreData": [
+    {
+      "_why": "Diamonds for real money.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "PopupStoreData": [
+    {
+      "_why": "Real-money popup offers.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "StarPassStoreData": [
+    {
+      "_why": "Real-money star passes.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "HeadphoneStoreData": [
+    {
+      "_why": "Headphones (stamina) are unlimited offline.",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "LiveThemeData": [
+    {
+      "_why": "LOONA's only live theme is a leftover copy of SUPERSTAR OH MY GIRL's 'Fresher Edition' (OH MY GIRL members, files on SSOMG's CDN).",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "LiveThemeCardData": [
+    {
+      "_why": "LOONA's only live theme is a leftover copy of SUPERSTAR OH MY GIRL's 'Fresher Edition' (OH MY GIRL members, files on SSOMG's CDN).",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "LiveThemeGifData": [
+    {
+      "_why": "LOONA's only live theme is a leftover copy of SUPERSTAR OH MY GIRL's 'Fresher Edition' (OH MY GIRL members, files on SSOMG's CDN).",
+      "match": {},
+      "remove": true
+    }
+  ],
+  "LiveThemeSoundData": [
+    {
+      "_why": "LOONA's only live theme is a leftover copy of SUPERSTAR OH MY GIRL's 'Fresher Edition' (OH MY GIRL members, files on SSOMG's CDN).",
+      "match": {},
+      "remove": true
+    }
+  ]
+}

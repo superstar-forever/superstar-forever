@@ -1,0 +1,46 @@
+{
+  "AdStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1062
+  },
+  "ArtistTypeData": {
+    "hash": "7ca1a87ece35a901",
+    "version": 1189
+  },
+  "AttendanceManagementData": {
+    "hash": "00aa00a451876415",
+    "version": 1330
+  },
+  "DiamondStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1324
+  },
+  "HeadphoneStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1324
+  },
+  "PopupStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1326
+  },
+  "RecommendStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1326
+  },
+  "StarPassStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1321
+  },
+  "StoreHomeData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1326
+  },
+  "StoreMenuData": {
+    "hash": "5ffe40c4584200b4",
+    "version": 1332
+  },
+  "WeeklyStoreData": {
+    "hash": "4f53cda18c2baa0c",
+    "version": 1087
+  }
+}

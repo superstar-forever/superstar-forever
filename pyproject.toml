@@ -1,0 +1,16 @@
+[project]
+name = "superstar-forever"
+version = "0"
+description = "Tools to make Dalcomsoft's SuperStar games playable offline"
+requires-python = ">=3.11"
+dependencies = [
+    "pycryptodome",
+    "Pillow",
+    "UnityPy",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 120

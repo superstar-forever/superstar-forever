@@ -1,0 +1,18 @@
+{
+  "_comment": "Startup manifest template served by the local server (GET .../real/manifest/3.12.4.txt). Same keys as the game's original manifest; the server fills in ServerUrl and rewrites the CDN URLs to itself. Values the offline game doesn't use are empty.",
+  "ActiveVersion_Android": "3.12.4",
+  "ActiveVersion_IOS": "3.12.4",
+  "ServerUrl": "",
+  "TermsVersion": "3",
+  "DateOfBirth": "1",
+  "MusicRankServerUrl": "",
+  "Cryption": "0",
+  "OfferwallSuffix": "",
+  "MaintenanceUrl": "",
+  "ProbabilityUrl": "",
+  "TitleBackgroundUrl": "https://d3exy8s96shf22.cloudfront.net/resources/images/title_background/title_{0}.png?v=22101401",
+  "TitleBackgroundCount": "6",
+  "TitleBackgroundVideoUrl": "",
+  "DalcomAccountDev": "0",
+  "TesterIp": []
+}

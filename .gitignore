@@ -1,0 +1,33 @@
+# Local files (see README.md). Back up original/ and keys/. the rest can be recreated.
+/original/*
+/keys/*
+!/original/.gitkeep
+!/keys/.gitkeep
+# Folders stay in git as empty placeholders (.gitkeep).
+/cdn-mirror/*/*
+/build/*/*
+/work/*/*
+!/cdn-mirror/*/.gitkeep
+!/build/*/.gitkeep
+!/work/*/.gitkeep
+!/build/CACHEDIR.TAG
+!/work/CACHEDIR.TAG
+
+# Tools
+__pycache__/
+/.venv/
+
+# Rust
+server/target/
+server/.cargo-home/
+
+# Runtime files of the server
+*.save.json
+*.save.tmp
+*.log
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# Working notes, not shared
+/PLAN.md

@@ -1,0 +1,182 @@
+{
+  "_comment": "Card progression settings for the offline server (see re/notes/06-progression.md). Copied to server-data/progression.json by tools/build-server-data.py. Grades: 0=C 1=B 2=A 3=S 4=R. Difficulties: 0=easy 1=normal 2=hard.",
+  "start": {
+    "nickname": "Miracle",
+    "_why": "Original: new players start with 0 cards and the tutorial gives a normal 30-card pack (tutorialNormalCardPack30). Given at save creation so there's always a leader card.",
+    "packs": [
+      {
+        "kind": "normal",
+        "size": 30
+      }
+    ],
+    "rhythmPoint": 0,
+    "diamond": 0,
+    "headphone": 99999,
+    "maxCardInventory": 9999
+  },
+  "rpPerSong": {
+    "_why": "PLACEHOLDER until fitted to real result screens. Uses the game's config constants RP_BONUS=165, RP_BONUS_REVISION=15000, RP_BONUS_EASY/NORMAL/HARD=18/45/90. rp = base + difficultyBonus * (score / revision) ^ exponent. Reference point (SuperStar JYP): maxed deck, hard, 6.37M score -> 1,541 RP; here that gives ~1,960.",
+    "base": 165,
+    "revision": 15000,
+    "difficultyBonus": [
+      18,
+      45,
+      90
+    ],
+    "exponent": 0.5
+  },
+  "packs": {
+    "_why": "Odds per grade; secondary anchor: published drop rates of a comparable game. 'guarantee' = at least N cards of at least that grade per pack size.",
+    "normal": {
+      "gradeWeights": {
+        "0": 80,
+        "1": 13,
+        "2": 5,
+        "3": 2
+      },
+      "guarantee": {
+        "5": {
+          "grade": 1,
+          "count": 1
+        },
+        "10": {
+          "grade": 1,
+          "count": 2
+        },
+        "30": {
+          "grade": 1,
+          "count": 6
+        }
+      }
+    },
+    "premium": {
+      "gradeWeights": {
+        "1": 66,
+        "2": 21,
+        "3": 10.6,
+        "4": 2.4
+      },
+      "guarantee": {
+        "5": {
+          "grade": 2,
+          "count": 1
+        },
+        "10": {
+          "grade": 3,
+          "count": 1
+        },
+        "30": {
+          "grade": 4,
+          "count": 1
+        }
+      }
+    }
+  },
+  "firstClear": {
+    "_why": "Original stage results have a firstClearReward card. Per song and difficulty: one card from the song's album/group, grade by difficulty, plus some RP. The RP also matters technically: the result screen hangs when a song's rewards are only card packs.",
+    "gradeByDifficulty": [
+      0,
+      1,
+      2
+    ],
+    "rhythmPoint": 500
+  },
+  "songMilestones": {
+    "_why": "The original daily missions (mission table: play 1/4/7/20 songs -> RP, B/A/S cards, 50 diamonds), turned into repeating song-count milestones.",
+    "list": [
+      {
+        "every": 5,
+        "rhythmPoint": 4500,
+        "cards": [
+          {
+            "grade": 1
+          }
+        ]
+      },
+      {
+        "every": 20,
+        "diamond": 50,
+        "cards": [
+          {
+            "grade": 2
+          }
+        ]
+      },
+      {
+        "every": 50,
+        "rhythmPoint": 10000,
+        "cards": [
+          {
+            "grade": 3
+          }
+        ]
+      }
+    ]
+  },
+  "recordLadder": {
+    "_why": "Original monthly 'My Record' ladder (myrecord table, last month's tiers), run once: counts distinct songs cleared.",
+    "tiers": [
+      {
+        "songs": 1,
+        "diamond": 20,
+        "rhythmPoint": 2000,
+        "packs": [
+          {
+            "kind": "normal",
+            "size": 10
+          }
+        ]
+      },
+      {
+        "songs": 7,
+        "diamond": 40,
+        "rhythmPoint": 4000,
+        "packs": [
+          {
+            "kind": "premium",
+            "size": 5
+          }
+        ]
+      },
+      {
+        "songs": 13,
+        "diamond": 80,
+        "rhythmPoint": 8000,
+        "packs": [
+          {
+            "kind": "premium",
+            "size": 10
+          }
+        ]
+      },
+      {
+        "songs": 19,
+        "diamond": 120,
+        "rhythmPoint": 16000,
+        "packs": [
+          {
+            "kind": "premium",
+            "size": 30
+          }
+        ]
+      },
+      {
+        "songs": 25,
+        "diamond": 160,
+        "rhythmPoint": 24000,
+        "packs": [
+          {
+            "kind": "premium",
+            "size": 30
+          }
+        ]
+      }
+    ]
+  },
+  "gradeUp": {
+    "_why": "Two cards of the same member and grade, both at max level, become one card of the next grade (same member, level 1). Cost not in the tables; RP = sell price of the two cards.",
+    "requireMaxLevel": true,
+    "maxLevel": 5,
+    "maxRLevel": 50
+  }
+}

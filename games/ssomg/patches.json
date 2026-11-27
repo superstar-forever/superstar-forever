@@ -1,0 +1,402 @@
+{
+  "target": "unpacked/arm64/lib/arm64-v8a/libil2cpp.so",
+  "game_version": "3.22.4 (118)",
+  "patches": [
+    {
+      "name": "skip-app-hash-check",
+      "description": "AppHashChecker.36a2c323(Action callback), called by TitleScene. Replaces its first instruction with a branch to AppHashChecker.2e1a74c9, which only invokes the callback. Skips the install-source check, the code hash and the hash upload to the server.",
+      "va": "0x1CC6DD8",
+      "file_offset": "0x1CC5DD8",
+      "original": "fe0f1cf8",
+      "patched": "d5000014",
+      "asm": "b 0x1CC712C"
+    },
+    {
+      "name": "title-skip-login-select",
+      "description": "TitleScene.SetStateSelectLogin(this, toggleIndex) branches straight to SetStateGuestLogin(this), so the login-method popup (guest/membership/Google/Facebook/Apple/Dalcom) never shows.",
+      "va": "0x1C20824",
+      "file_offset": "0x1C1F824",
+      "original": "fe0f1df8",
+      "patched": "64f8ff17",
+      "asm": "b 0x1C1E9B4"
+    },
+    {
+      "name": "settings-noop-OnEventSignup",
+      "description": "SettingAssist.OnEventSignup(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B98454",
+      "file_offset": "0x1B97454",
+      "original": "fe0f1cf8",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventRegularSignup",
+      "description": "SettingAssist.OnEventRegularSignup(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B985BC",
+      "file_offset": "0x1B975BC",
+      "original": "fe57bea9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventRegularGoogleSignup",
+      "description": "SettingAssist.OnEventRegularGoogleSignup(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B986A0",
+      "file_offset": "0x1B976A0",
+      "original": "fe0f1df8",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventRegularFacebookSignup",
+      "description": "SettingAssist.OnEventRegularFacebookSignup(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B987B4",
+      "file_offset": "0x1B977B4",
+      "original": "fe0f1df8",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventRegularAppleSignup",
+      "description": "SettingAssist.OnEventRegularAppleSignup(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B988C8",
+      "file_offset": "0x1B978C8",
+      "original": "fe0f1df8",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventLogout",
+      "description": "SettingAssist.OnEventLogout(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B9924C",
+      "file_offset": "0x1B9824C",
+      "original": "fe5fbda9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventLeave",
+      "description": "SettingAssist.OnEventLeave(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B99394",
+      "file_offset": "0x1B98394",
+      "original": "fe5fbda9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventDalcomAccountMyGame",
+      "description": "SettingAssist.OnEventDalcomAccountMyGame(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B998DC",
+      "file_offset": "0x1B988DC",
+      "original": "fe5fbda9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventDalcomAccountInfo",
+      "description": "SettingAssist.OnEventDalcomAccountInfo(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B99A8C",
+      "file_offset": "0x1B98A8C",
+      "original": "fe5fbda9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventDalcomAccountJoin",
+      "description": "SettingAssist.OnEventDalcomAccountJoin(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B99BD4",
+      "file_offset": "0x1B98BD4",
+      "original": "fe5fbda9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventDalcomAccountSignout",
+      "description": "SettingAssist.OnEventDalcomAccountSignout(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B99E1C",
+      "file_offset": "0x1B98E1C",
+      "original": "fe67bca9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventGoogleSignout",
+      "description": "SettingAssist.OnEventGoogleSignout(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B9A6E4",
+      "file_offset": "0x1B996E4",
+      "original": "fe67bca9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventFacebookSignout",
+      "description": "SettingAssist.OnEventFacebookSignout(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B9AD88",
+      "file_offset": "0x1B99D88",
+      "original": "fe67bca9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "settings-noop-OnEventAppleSignout",
+      "description": "SettingAssist.OnEventAppleSignout(Popup) returns immediately: account signup/link/logout/leave buttons in Settings do nothing.",
+      "va": "0x1B9B42C",
+      "file_offset": "0x1B9A42C",
+      "original": "fe67bca9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "skip-attendance-popup",
+      "description": "AttendanceAssist.OpenAttendancePopup(this, isChanged) branches to AttendanceAssist.Complete(this, isChanged): the daily attendance popup is skipped (its table ends 2025-04, so it crashed in BirthDayMessage on later dates) and the lobby flow continues.",
+      "va": "0x1AE615C",
+      "file_offset": "0x1AE515C",
+      "original": "ff0302d1",
+      "patched": "f2ffff17",
+      "asm": "b 0x1AE6124"
+    },
+    {
+      "name": "grant-all-permissions",
+      "description": "NetworkControl.CheckPermission(permission, callback) calls callback right away: the game never asks for (or insists on) phone/storage/media permissions. Every permission request in the game goes through this method. Pairs with the renamed permissions in AndroidManifest.xml (tools/build-apk.py).",
+      "va": "0x1C6CBD4",
+      "file_offset": "0x1C6BBD4",
+      "original": "fe0f1df8f65701a9",
+      "patched": "e00301aa55690114",
+      "asm": "mov x0, x1; b 0x1CC712C"
+    },
+    {
+      "name": "account-always-exists",
+      "description": "LoginControl.get_AccountCode: PlayerPrefs.GetString(\"vjckkjd\", \"\") gets the key itself as default instead of \"\". A fresh install therefore has a non-empty account code, the title screen goes straight to auto-login and the guest/nickname popups never appear. The server accepts any credentials.",
+      "va": "0x1C56974",
+      "file_offset": "0x1C55974",
+      "original": "a10240f9",
+      "patched": "810240f9",
+      "asm": "ldr x1, [x20]  (was ldr x1, [x21])"
+    },
+    {
+      "name": "login-always-available",
+      "description": "LoginControl.get_IsLoginAvailable (stored auth object ID != 0) returns true, so the title screen treats the account as usable on a fresh install.",
+      "va": "0x1C603FC",
+      "file_offset": "0x1C5F3FC",
+      "original": "fe0f1ff805000094",
+      "patched": "20008052c0035fd6",
+      "asm": "mov w0, #1; ret"
+    },
+    {
+      "name": "no-ad-sdk",
+      "description": "GoogleMobileAdsScript.InitADX(OnComplete) returns immediately: the ADX ad SDK (and its GDPR consent form) is never initialized. The only caller, SystemControl.Open, passes an empty callback.",
+      "va": "0x1DE1680",
+      "file_offset": "0x1DE0680",
+      "original": "fe57bea9",
+      "patched": "c0035fd6",
+      "asm": "ret"
+    },
+    {
+      "name": "skip-terms",
+      "description": "TitleScene.SetStateTermsAndPolicy() branches to SetStateTutorial(), which is what it does when terms were already accepted: no terms/privacy screen.",
+      "va": "0x1C1EB6C",
+      "file_offset": "0x1C1DB6C",
+      "original": "fe0f1df8",
+      "patched": "7b000014",
+      "asm": "b 0x1C1ED58"
+    },
+    {
+      "name": "skip-download-confirm",
+      "description": "AssetControl.OnDownloadConfirm: instead of ViewControl.OpenLocalePopup(53, message, callback), invoke the callback (in x20) with isOk=true, so the 'N MB of resources will be downloaded' confirmation never shows and the download starts right away.",
+      "va": "0x1C253FC",
+      "file_offset": "0x1C243FC",
+      "original": "a0068052e10313aae20314aae3031faaa79e0194",
+      "patched": "802240f9890e40f9821640f92100805220013fd6",
+      "asm": "ldr x0,[x20,#64]; ldr x9,[x20,#24]; ldr x2,[x20,#40]; mov w1,#1; blr x9"
+    },
+    {
+      "name": "no-review-prompt",
+      "description": "InAppReviewControl.OpenInAppReviewInResultScene(callback) jumps to the 'invoke Action' helper (AppHashChecker.2e1a74c9): the 'rate this game' prompt after songs never shows, the result scene continues.",
+      "va": "0x1C5CCDC",
+      "file_offset": "0x1C5BCDC",
+      "original": "fe0f1df8",
+      "patched": "14a90114",
+      "asm": "b 0x1CC712C"
+    },
+    {
+      "name": "no-dalcom-account-event",
+      "description": "LobbyScene.SetDalcomAccountEvent() branches to SetStateUpdateNotice(), its next step: the Dalcom account promo popup in the lobby never shows.",
+      "va": "0x1BF09BC",
+      "file_offset": "0x1BEF9BC",
+      "original": "fe57bea9",
+      "patched": "71000014",
+      "asm": "b 0x1BF0B80"
+    },
+    {
+      "name": "skip-song-download-confirm",
+      "description": "InstallMusicAssist.OpenDownloadConfirmPopup(this, md, fileSize) branches to OpenInstallMusicPopup(this, md), what its Download button does: songs that aren't cached yet download without asking.",
+      "va": "0x1B26348",
+      "file_offset": "0x1B25348",
+      "original": "ff8301d1",
+      "patched": "05010014",
+      "asm": "b 0x1B2675C"
+    },
+    {
+      "name": "skip-extra-download-confirm",
+      "description": "AssetDownloader.ShowDownloadPopup (extra resources download): instead of ViewControl.OpenLocalePopup(53, message, callback), invoke the callback (in x22) with isOk=true. Second path of the same confirmation as skip-download-confirm.",
+      "va": "0x1E0FB84",
+      "file_offset": "0x1E0EB84",
+      "original": "a0068052e10315aae20316aae3031faac5f4f997",
+      "patched": "c02240f9c90e40f9c21640f92100805220013fd6",
+      "asm": "ldr x0,[x22,#64]; ldr x9,[x22,#24]; ldr x2,[x22,#40]; mov w1,#1; blr x9"
+    },
+    {
+      "name": "store-missing-tab-no-crash",
+      "description": "StoreAssist.Start(type, code=-1): the tab for a store type is looked up with StoreMenuControl's type->code Dictionary<short,short>.get_Item, which throws KeyNotFoundException when no tab of that type exists (e.g. diamonds/packages/headphones/ads after we removed those tabs). Call TryGetValue(type, out display.code) instead (same class, so get_Item's MethodInfo works as the method argument); a missing type leaves code 0, which StorePopup.SetState(short) then resolves through its fallback (see store-fallback-card-packs-*).",
+      "va": "0x1BA8CD8",
+      "file_offset": "0x1BA7CD8",
+      "original": "020140f931e83094604a0079",
+      "patched": "030140f9629200911eee3094",
+      "asm": "ldr x3,[x8]; add x2,x19,#36; bl Dictionary<short,short>.TryGetValue (0x27E4558)"
+    },
+    {
+      "name": "store-fallback-card-packs-by-code",
+      "description": "StorePopup.SetState(short code): when no tab with that code exists, it falls back to the first tab of type 0 (NewBanner, the store home). We removed the home tab (its banners were all real-money offers), so fall back to type 3 (CardPack) instead.",
+      "va": "0x1A44C2C",
+      "file_offset": "0x1A43C2C",
+      "original": "e1031f2a",
+      "patched": "61008052",
+      "asm": "mov w1,#3"
+    },
+    {
+      "name": "store-fallback-card-packs-by-type",
+      "description": "StorePopup.SetState(StorePopup.TYPE type): when no tab of that type exists, it falls back to type 0 (NewBanner, the store home, which we removed). Fall back to type 3 (CardPack) instead.",
+      "va": "0x1A4726C",
+      "file_offset": "0x1A4626C",
+      "original": "e1031f2a",
+      "patched": "61008052",
+      "asm": "mov w1,#3"
+    },
+    {
+      "name": "skip-tutorial-proceed-dialog",
+      "description": "TutorialAssist.OpenAccountConfirmPopup: the end-of-tutorial dialog 'You are now ready to play ... Do you wish to proceed? (Reset Nickname & Cards / Proceed)' is skipped by calling its callback <OpenAccountConfirmPopup>b__9_0(this, isOk: true) directly, i.e. Proceed. The reset path re-logs in and hangs with our server.",
+      "va": "0x1BC8DA8",
+      "file_offset": "0x1BC7DA8",
+      "original": "fe6fbba9fa6701a9",
+      "patched": "2100805276010014",
+      "asm": "mov w1,#1; b 0x1BC9384 (<OpenAccountConfirmPopup>b__9_0)"
+    },
+    {
+      "name": "hide-buff-button",
+      "description": "BuffNewMark.Update (the component on the lobby's buff button, which normally toggles its 'new' badge): instead deactivate its own GameObject, hiding the buff button. Buffs come from buff tickets and events, which don't exist offline.",
+      "va": "0x1A720E4",
+      "file_offset": "0x1A710E4",
+      "original": "fe57bea9f44f01a9d43101b0551801d088c25639b58a40f9f30300aac8000037401801d0",
+      "patched": "fe0f1ff8e1031faa75087994fe0741f8800000b4e1031f2ae2031faaff127914c0035fd6",
+      "asm": "str x30,[sp,#-16]!; mov x1,xzr; bl Component.get_gameObject (0x38B42C0); ldr x30,[sp],#16; cbz x0,ret; mov w1,wzr; mov x2,xzr; b GameObject.SetActive (0x38B6CFC); ret"
+    },
+    {
+      "name": "hide-message-button",
+      "description": "TopView.RefreshMessageButton(isShow): always hide the Message button in the top bar (the post box has no content offline). TopViewControl.UpdateScene calls it per scene.",
+      "va": "0x1ABC774",
+      "file_offset": "0x1ABB774",
+      "original": "21000012",
+      "patched": "e1031f2a",
+      "asm": "mov w1,wzr (was: and w1,w1,#1)"
+    },
+    {
+      "name": "hide-left-menu",
+      "description": "LobbyView.InitMenus: always take the 'left menu closed' branch (the menu with Mission and Event starts slid out of view), and fetch leftArrowOff.parent.gameObject (the arrow button's frame) instead of leftArrowOff.gameObject, so hide-left-menu-arrow hides the whole button. Both menu buttons are empty offline (missions, event banners).",
+      "va": "0x1A691D8",
+      "file_offset": "0x1A681D8",
+      "original": "606640f9c00d00b4e1031faa372c7994600d00b4b5010036",
+      "patched": "606640f9e1031faa50597994e1031faa362c79940d000014",
+      "asm": "ldr x0,[x19,#200]; mov x1,xzr; bl Transform.get_parent (0x38BF720); mov x1,xzr; bl Component.get_gameObject; b 0x1A69220 (was: ...; tbz w21,#0,0x1A69220)"
+    },
+    {
+      "name": "hide-left-menu-arrow",
+      "description": "Second half of hide-left-menu: in the 'closed' branch of LobbyView.InitMenus, SetActive(false) instead of true for the left arrow button (its frame, see hide-left-menu).",
+      "va": "0x1A69220",
+      "file_offset": "0x1A68220",
+      "original": "21008052",
+      "patched": "e1031f2a",
+      "asm": "mov w1,wzr (was: mov w1,#1)"
+    },
+    {
+      "name": "no-artist-pack-download-at-login",
+      "description": "LoginControl.LoginStep23 callback: if the equipped artist pack isn't fully in the download cache (ArtistPackDataControl.Data.IsInstalledAll), the original downloads it during the loading screen (AssetControl.DownloadArtistPack); that waits for a confirmation that can't be shown there, so the game hangs after Store.getMyArtistPack. Always continue with LoginStep24 instead.",
+      "va": "0x1C6899C",
+      "file_offset": "0x1C6799C",
+      "original": "00020036",
+      "patched": "1f2003d5",
+      "asm": "nop (was: tbz w0,#0,0x1C689DC)"
+    },
+    {
+      "name": "hide-popup-shop-button",
+      "description": "StorePopup.OnBuild: instead of setting the Pop-up Shop button's label text (popupStoreText), deactivate the label's parent, i.e. the button. The pop-up shop only had real-money offers (PopupStoreData is emptied).",
+      "va": "0x1A4488C",
+      "file_offset": "0x1A4388C",
+      "original": "684e41f9e81700b4603641f9a01700b4090040f9016140f928f542f922f942f900013fd6",
+      "patched": "603641f9e1031faa7cbe7994a2eb799489be7994e1031f2ae2031faa15c979941f2003d5",
+      "asm": "ldr x0,[x19,#616]; mov x1,xzr; bl Component.get_transform; bl Transform.get_parent; bl Component.get_gameObject; mov w1,wzr; mov x2,xzr; bl GameObject.SetActive; nop"
+    },
+    {
+      "name": "no-restart-after-background",
+      "description": "SystemControl.CheckRestart() returns false: resuming the app after a long time in the background no longer restarts the game at the title screen (it compared the time since the pause with a limit; the only caller is SystemControl.AppResume). Offline there is no session to refresh.",
+      "va": "0x1C7A0B0",
+      "file_offset": "0x1C790B0",
+      "original": "fe0f1ef8f44f01a9",
+      "patched": "e0031f2ac0035fd6",
+      "asm": "mov w0, wzr; ret"
+    },
+    {
+      "name": "hide-settings-account",
+      "description": "InfoAccountView.Refresh (the account box in Settings: account/guest info, Dalcom ID, sign in and out, delete account) deactivates its own GameObject instead of filling it in. There are no accounts offline; the buttons were already no-ops (settings-noop-*).",
+      "va": "0x1A81EEC",
+      "file_offset": "0x1A80EEC",
+      "original": "fe0f1bf8fa6701a9f85f02a9f65703a9f44f04a9553101d0a88e5939f30301aaf40300aa",
+      "patched": "fe4fbfa9e1031faaf3c87894fe4fc1a8800000b4e1031f2ae2031faa7dd37814c0035fd6",
+      "asm": "stp; bl Component.get_gameObject; ldp; cbz x0 -> ret; SetActive(false) (tail call); ret"
+    },
+    {
+      "name": "hide-parent-helper",
+      "description": "Helper (in the dead body of InstallMusicAssist.OpenDownloadConfirmPopup, skipped by skip-song-download-confirm): x0 = a component; deactivates its parent GameObject. Used by hide-menu-attendance, hide-menu-notice, hide-settings-account-title and hide-settings-dalcom-id.",
+      "va": "0x1B2634C",
+      "file_offset": "0x1B2534C",
+      "original": "e80b00fdfe0f00f9fa6702a9f85f03a9f65704a9f44f05a9332c01b0f612019068de7339d68244f9081ca04ef40301aaf50300aae8040037801201d000f041f9",
+      "patched": "fe4fbfa9a00100b4e1031faacb377694e1031faaf0647694000100b4e1031faad5377694a00000b4e1031f2ae2031faafe4fc1a85f427614fe4fc1a8c0035fd6",
+      "asm": "stp x30, x19, [sp, #-16]!; cbz x0, ret; bl Component.get_transform; bl Transform.get_parent; cbz x0, ret; bl Component.get_gameObject; cbz x0, ret; mov w1, wzr; mov x2, xzr; ldp; b GameObject.SetActive; ret: ldp; ret"
+    },
+    {
+      "name": "hide-menu-attendance",
+      "description": "TopView.SetMoreButton: instead of setting the Attendance label, hide the Attendance button in the ☰ menu (attendance is skipped offline, the button did nothing).",
+      "va": "0x1ABD918",
+      "file_offset": "0x1ABC918",
+      "original": "a0c640f9c00400b4080040f9e10318aa09f542f902f942f920013fd6",
+      "patched": "a0c640f98ca201941f2003d51f2003d51f2003d51f2003d51f2003d5",
+      "asm": "ldr x0, [x21, #392]; bl hide-parent-helper; nop x5"
+    },
+    {
+      "name": "hide-menu-notice",
+      "description": "TopView.SetMoreButton: instead of setting the Notice label, hide the News button in the ☰ menu (there is no news offline, the button did nothing).",
+      "va": "0x1ABD934",
+      "file_offset": "0x1ABC934",
+      "original": "a0ca40f9e00300b4080040f9e10317aa09f542f902f942f920013fd6",
+      "patched": "a0ca40f985a201941f2003d51f2003d51f2003d51f2003d51f2003d5",
+      "asm": "ldr x0, [x21, #400]; bl hide-parent-helper; nop x5"
+    },
+    {
+      "name": "hide-settings-account-title",
+      "description": "SettingPopup.OnBuild: instead of setting the 'Account Settings' title (accountTitle), hide its parent, the section header.",
+      "va": "0x1A3AF28",
+      "file_offset": "0x1A39F28",
+      "original": "609640f9203d00b4090040f9013d40f928f542f922f942f900013fd6",
+      "patched": "609640f908ad03941f2003d51f2003d51f2003d51f2003d51f2003d5",
+      "asm": "ldr x0, [x19, #296]; bl hide-parent-helper; nop x5"
+    },
+    {
+      "name": "hide-settings-dalcom-id",
+      "description": "SettingPopup.OnBuild: instead of setting the 'Dalcom ID' header (joinDalcomAccountHeader), hide its parent, the Dalcom ID row.",
+      "va": "0x1A3AF4C",
+      "file_offset": "0x1A39F4C",
+      "original": "609a40f9003c00b4090040f9014140f928f542f922f942f900013fd6",
+      "patched": "609a40f9ffac03941f2003d51f2003d51f2003d51f2003d51f2003d5",
+      "asm": "ldr x0, [x19, #304]; bl hide-parent-helper; nop x5"
+    }
+  ]
+}
